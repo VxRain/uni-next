@@ -84,8 +84,8 @@ importers:
         specifier: 4.5.1
         version: 4.5.1(vue@3.4.21(typescript@5.9.3))
       wot-design-uni:
-        specifier: ^1.13.0
-        version: 1.13.0(vue@3.4.21(typescript@5.9.3))
+        specifier: ^1.14.0
+        version: 1.14.0(vue@3.4.21(typescript@5.9.3))
     devDependencies:
       '@dcloudio/types':
         specifier: 3.4.19
@@ -118,8 +118,8 @@ importers:
         specifier: 0.1.0
         version: 0.1.0(@dcloudio/vite-plugin-uni@3.0.0-4080520251106001(postcss@8.5.6)(rollup@4.53.5)(vite@5.2.8(@types/node@25.0.3)(sass@1.64.2)(terser@5.44.1))(vue@3.4.21(typescript@5.9.3)))
       '@uni-helper/unh':
-        specifier: ^0.2.9
-        version: 0.2.9
+        specifier: ^0.2.10
+        version: 0.2.10
       '@uni-helper/uni-types':
         specifier: ^1.0.0-alpha.7
         version: 1.0.0-alpha.7(@uni-helper/uni-app-types@1.0.0-alpha.7(typescript@5.9.3)(vue@3.4.21(typescript@5.9.3)))(@uni-helper/uni-cloud-types@1.0.0-alpha.7(typescript@5.9.3)(vue@3.4.21(typescript@5.9.3)))(@uni-helper/uni-ui-types@1.0.0-alpha.7(@uni-helper/uni-app-types@1.0.0-alpha.7(typescript@5.9.3)(vue@3.4.21(typescript@5.9.3)))(typescript@5.9.3)(vue@3.4.21(typescript@5.9.3)))(typescript@5.9.3)(vue@3.4.21(typescript@5.9.3))
@@ -127,8 +127,8 @@ importers:
         specifier: ^0.2.11
         version: 0.2.11(@unocss/preset-legacy-compat@66.5.10)(@unocss/preset-mini@66.5.10)(@unocss/rule-utils@66.5.10)(@unocss/vite@66.0.0(vite@5.2.8(@types/node@25.0.3)(sass@1.64.2)(terser@5.44.1))(vue@3.4.21(typescript@5.9.3)))(unocss-applet@0.12.2(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@25.0.3)(sass@1.64.2)(terser@5.44.1))(vue@3.4.21(typescript@5.9.3))))(unocss@66.0.0(postcss@8.5.6)(vite@5.2.8(@types/node@25.0.3)(sass@1.64.2)(terser@5.44.1))(vue@3.4.21(typescript@5.9.3)))
       '@uni-helper/vite-plugin-uni-components':
-        specifier: ^0.2.3
-        version: 0.2.3(rollup@4.53.5)
+        specifier: ^0.2.6
+        version: 0.2.6(rollup@4.53.5)
       '@uni-helper/vite-plugin-uni-layouts':
         specifier: ^0.1.11
         version: 0.1.11(rollup@4.53.5)
@@ -148,7 +148,7 @@ importers:
         specifier: ^9.39.1
         version: 9.39.2(jiti@2.6.1)
       miniprogram-api-typings:
-        specifier: ^4.1.0
+        specifier: ^4.1.2
         version: 4.1.2
       sass:
         specifier: 1.64.2
@@ -1877,8 +1877,8 @@ packages:
     peerDependencies:
       '@dcloudio/vite-plugin-uni': '*'
 
-  '@uni-helper/unh@0.2.9':
-    resolution: {integrity: sha512-DgW8KZg1q9UIJMiFdvmAtbOrPu5p+xuVVXAr5Fk32TDISU1qcg7NO74rm7Du6XirRIKjSxubeDH5kP6pGvg4xg==}
+  '@uni-helper/unh@0.2.10':
+    resolution: {integrity: sha512-IeE5Apz6PKP9kGYv8nMHiS4MjVE57XKtmsb+lttnwl0FJeBVWbh4yd4KNU+FHdNjOzqdXh9XF/yB0Jy1zmyfUA==}
     hasBin: true
 
   '@uni-helper/uni-app-types@1.0.0-alpha.7':
@@ -1959,8 +1959,8 @@ packages:
       '@unocss/vite':
         optional: true
 
-  '@uni-helper/vite-plugin-uni-components@0.2.3':
-    resolution: {integrity: sha512-in7jRYQnPkLg6W13dzz8mzHDuZC+OFc3qb8MrnmDQgniIxHfxJw8vaibL1au6gvq7ij3h6EHvhHaRytIJ2PkYw==}
+  '@uni-helper/vite-plugin-uni-components@0.2.6':
+    resolution: {integrity: sha512-0Z7agSZ9M4jv6zCrBzvUhuIGR7gb2wPepcmIBBGHsYshh32q9PtaAcDXlZRkerSdsxP8ZZBCeuJcFvlFH5QrOQ==}
 
   '@uni-helper/vite-plugin-uni-layouts@0.1.11':
     resolution: {integrity: sha512-FXdFATBFsHAl7xY9q3KO0EexMRGua/7txIiQTm2rQi1/bXcft4CUXldtuHl9Upq0V6CT47aanmfzcOF5CpHK7Q==}
@@ -6155,8 +6155,8 @@ packages:
     resolution: {integrity: sha512-BN22B5eaMMI9UMtjrGd5g5eCYPpCPDUy0FJXbYsaT5zYxjFOckS53SQDE3pWkVoWpHXVb3BrYcEN4Twa55B5cA==}
     engines: {node: '>=0.10.0'}
 
-  wot-design-uni@1.13.0:
-    resolution: {integrity: sha512-U4ezX7n1DfSuecTvHap06UqkN7dGhSLyC5n7OfmddajYSiV6t39bPLtRIds6uTarmRZCEWERrLN8cGSdZJIHWg==}
+  wot-design-uni@1.14.0:
+    resolution: {integrity: sha512-FaBXtmxxAkZNZUxR2xeKBg/Agck+SPaFFFeCvbBzAFeqM/5m2Y/v/7te7rhMJpZFkMoAgtJR1yaWR0DnjOmTnA==}
     engines: {HBuilderX: ^3.8.7}
     peerDependencies:
       vue: '>=3.2.47'
@@ -7122,7 +7122,7 @@ snapshots:
       '@babel/parser': 7.28.5
       '@babel/template': 7.27.2
       '@babel/types': 7.28.5
-      debug: 4.3.7
+      debug: 4.4.3
     transitivePeerDependencies:
       - supports-color
 
@@ -8852,7 +8852,7 @@ snapshots:
     dependencies:
       '@dcloudio/vite-plugin-uni': 3.0.0-4080520251106001(postcss@8.5.6)(rollup@4.53.5)(vite@5.2.8(@types/node@25.0.3)(sass@1.64.2)(terser@5.44.1))(vue@3.4.21(typescript@5.9.3))
 
-  '@uni-helper/unh@0.2.9':
+  '@uni-helper/unh@0.2.10':
     dependencies:
       '@uni-helper/uni-env': 0.2.0
       cac: 6.7.14
@@ -8934,7 +8934,7 @@ snapshots:
       '@unocss/preset-mini': 66.5.10
       '@unocss/vite': 66.0.0(vite@5.2.8(@types/node@25.0.3)(sass@1.64.2)(terser@5.44.1))(vue@3.4.21(typescript@5.9.3))
 
-  '@uni-helper/vite-plugin-uni-components@0.2.3(rollup@4.53.5)':
+  '@uni-helper/vite-plugin-uni-components@0.2.6(rollup@4.53.5)':
     dependencies:
       '@antfu/utils': 0.7.10
       '@rollup/pluginutils': 5.3.0(rollup@4.53.5)
@@ -14045,7 +14045,7 @@ snapshots:
 
   word-wrap@1.2.5: {}
 
-  wot-design-uni@1.13.0(vue@3.4.21(typescript@5.9.3)):
+  wot-design-uni@1.14.0(vue@3.4.21(typescript@5.9.3)):
     dependencies:
       vue: 3.4.21(typescript@5.9.3)
 
