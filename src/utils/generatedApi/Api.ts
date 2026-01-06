@@ -246,7 +246,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 验证码ID */
             id: string;
             /** 验证码SVG */
@@ -291,7 +291,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 验证码签名 */
             sign: string;
             /** 验证码SVG */
@@ -421,7 +421,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             user: {
               /** 用户ID */
               id: number;
@@ -524,7 +524,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             user: {
               /** 用户ID */
               id: number;
@@ -596,7 +596,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 访问令牌 */
             accessToken: string;
             /** 刷新令牌 */
@@ -654,7 +654,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 访问令牌 */
             accessToken: string;
           };
@@ -797,7 +797,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 权限ID */
             id: number;
             /** 权限名称 */
@@ -840,20 +840,18 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data:
-            | null
-            | {
-                /** 权限ID */
-                id: number;
-                /** 权限名称 */
-                name: string;
-                /** 权限代码 */
-                code: string;
-                /** 创建时间 */
-                createdAt: any;
-                /** 更新时间 */
-                updatedAt: any;
-              }[];
+          data: {
+            /** 权限ID */
+            id: number;
+            /** 权限名称 */
+            name: string;
+            /** 权限代码 */
+            code: string;
+            /** 创建时间 */
+            createdAt: any;
+            /** 更新时间 */
+            updatedAt: any;
+          }[];
         },
         any
       >({
@@ -883,7 +881,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 权限ID */
             id: number;
             /** 权限名称 */
@@ -941,7 +939,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 权限ID */
             id: number;
             /** 权限名称 */
@@ -984,7 +982,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             id: number;
           };
         },
@@ -1119,7 +1117,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 角色ID */
             id: number;
             /** 角色名称 */
@@ -1170,22 +1168,20 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data:
-            | null
-            | {
-                /** 角色ID */
-                id: number;
-                /** 角色名称 */
-                name: string;
-                /** 角色代码 */
-                code: string;
-                /** 角色描述 */
-                desc: string | null;
-                /** 创建时间 */
-                createdAt: any;
-                /** 更新时间 */
-                updatedAt: null;
-              }[];
+          data: {
+            /** 角色ID */
+            id: number;
+            /** 角色名称 */
+            name: string;
+            /** 角色代码 */
+            code: string;
+            /** 角色描述 */
+            desc: string | null;
+            /** 创建时间 */
+            createdAt: any;
+            /** 更新时间 */
+            updatedAt: null;
+          }[];
         },
         any
       >({
@@ -1216,7 +1212,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 角色ID */
             id: number;
             /** 角色名称 */
@@ -1281,7 +1277,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 角色ID */
             id: number;
             /** 角色名称 */
@@ -1326,7 +1322,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             id: number;
           };
         },
@@ -1358,16 +1354,14 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data:
-            | null
-            | {
-                /** 权限ID */
-                id: number;
-                /** 权限名称 */
-                name: string;
-                /** 权限代码 */
-                code: string;
-              }[];
+          data: {
+            /** 权限ID */
+            id: number;
+            /** 权限名称 */
+            name: string;
+            /** 权限代码 */
+            code: string;
+          }[];
         },
         any
       >({
@@ -1445,6 +1439,741 @@ export class Api<
       >({
         path: `/role/${id}/unassignPermissions`,
         method: "POST",
+        format: "json",
+        ...params,
+      }),
+  };
+  user = {
+    /**
+     * @description 获取用户列表
+     *
+     * @tags 用户
+     * @name ListUsers
+     * @request GET:/user/
+     */
+    listUsers: (
+      query?: {
+        /** 用户名(模糊查询) */
+        username?: string;
+        /** 状态：0正常 1封禁 */
+        status?: number;
+        /**
+         * 页码，从1开始，默认为1
+         * @min 1
+         * @default 1
+         */
+        page?: number;
+        /**
+         * 每页条数，默认为10，最小为5，最大为100
+         * @min 5
+         * @max 100
+         * @default 10
+         */
+        take?: number;
+        /** 游标分页，上次的ID */
+        lastId?: number;
+        /**
+         * 游标分页，使用的键
+         * @default "id"
+         */
+        cursorKey?: string;
+        /** 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id` */
+        sort?: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: {
+            /** 总记录数 */
+            totalCount?: number;
+            /** 总页数 */
+            totalPage?: number;
+            /** 当前页码 */
+            page?: number;
+            /** 每页条数 */
+            take: number;
+            /** 数据列表 */
+            list: {
+              /** 用户ID */
+              id: number;
+              /** 用户名 */
+              username: string;
+              /** 昵称 */
+              nickname: string | null;
+              /** 手机号 */
+              mobile: string | null;
+              /** 邮箱 */
+              email: string | null;
+              /** 头像 */
+              avatar: string | null;
+              /** 状态：0正常 1封禁 */
+              status: number;
+              /** 邀请人ID */
+              invitorId: number | null;
+              /** 创建时间 */
+              createdAt: any;
+              /** 更新时间 */
+              updatedAt: null;
+              roles?: {
+                /** 角色ID */
+                id: number;
+                /** 角色名称 */
+                name: string;
+                /** 角色代码 */
+                code: string;
+                /** 角色描述 */
+                desc: string | null;
+                /** 创建时间 */
+                createdAt: any;
+                /** 更新时间 */
+                updatedAt: null;
+              }[];
+              profile?: null | {
+                /** 用户ID */
+                userId: number;
+                /** 真实姓名 */
+                realName: string | null;
+                /** 个性签名 */
+                bio: string | null;
+                /** 生日 */
+                birthday: null;
+                /** 性别 */
+                gender: number | null;
+                /** 身份证号 */
+                idCardNum: string | null;
+                /** 创建时间 */
+                createdAt: any;
+                /** 更新时间 */
+                updatedAt: null;
+              };
+            }[];
+          };
+        },
+        any
+      >({
+        path: `/user/`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 创建用户
+     *
+     * @tags 用户
+     * @name CreateUser
+     * @request POST:/user/
+     */
+    createUser: (
+      data: {
+        /**
+         * 用户名
+         * @minLength 3
+         * @maxLength 32
+         */
+        username: string;
+        /**
+         * 密码
+         * @minLength 6
+         * @maxLength 32
+         */
+        password: string;
+        /**
+         * 昵称
+         * @maxLength 50
+         */
+        nickname?: string;
+        /**
+         * 手机号
+         * @minLength 11
+         * @maxLength 11
+         */
+        mobile?: string;
+        /**
+         * 邮箱
+         * @format email
+         */
+        email?: string;
+        /** 头像URL */
+        avatar?: string;
+        /**
+         * 状态：0正常 1封禁
+         * @default 0
+         */
+        status?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: {
+            /** 用户ID */
+            id: number;
+            /** 用户名 */
+            username: string;
+            /** 昵称 */
+            nickname: string | null;
+            /** 手机号 */
+            mobile: string | null;
+            /** 邮箱 */
+            email: string | null;
+            /** 头像 */
+            avatar: string | null;
+            /** 状态：0正常 1封禁 */
+            status: number;
+            /** 邀请人ID */
+            invitorId: number | null;
+            /** 创建时间 */
+            createdAt: any;
+            /** 更新时间 */
+            updatedAt: null;
+            roles?: {
+              /** 角色ID */
+              id: number;
+              /** 角色名称 */
+              name: string;
+              /** 角色代码 */
+              code: string;
+              /** 角色描述 */
+              desc: string | null;
+              /** 创建时间 */
+              createdAt: any;
+              /** 更新时间 */
+              updatedAt: null;
+            }[];
+            profile?: null | {
+              /** 用户ID */
+              userId: number;
+              /** 真实姓名 */
+              realName: string | null;
+              /** 个性签名 */
+              bio: string | null;
+              /** 生日 */
+              birthday: null;
+              /** 性别 */
+              gender: number | null;
+              /** 身份证号 */
+              idCardNum: string | null;
+              /** 创建时间 */
+              createdAt: any;
+              /** 更新时间 */
+              updatedAt: null;
+            };
+          };
+        },
+        any
+      >({
+        path: `/user/`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 根据ID获取用户
+     *
+     * @tags 用户
+     * @name GetUser
+     * @request GET:/user/{id}
+     */
+    getUser: (
+      id: number,
+      query?: {
+        /**
+         * 是否包含角色列表
+         * @default false
+         */
+        withRoles?: boolean;
+        /**
+         * 是否包含用户资料
+         * @default false
+         */
+        withProfile?: boolean;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: {
+            /** 用户ID */
+            id: number;
+            /** 用户名 */
+            username: string;
+            /** 昵称 */
+            nickname: string | null;
+            /** 手机号 */
+            mobile: string | null;
+            /** 邮箱 */
+            email: string | null;
+            /** 头像 */
+            avatar: string | null;
+            /** 状态：0正常 1封禁 */
+            status: number;
+            /** 邀请人ID */
+            invitorId: number | null;
+            /** 创建时间 */
+            createdAt: any;
+            /** 更新时间 */
+            updatedAt: null;
+            roles?: {
+              /** 角色ID */
+              id: number;
+              /** 角色名称 */
+              name: string;
+              /** 角色代码 */
+              code: string;
+              /** 角色描述 */
+              desc: string | null;
+              /** 创建时间 */
+              createdAt: any;
+              /** 更新时间 */
+              updatedAt: null;
+            }[];
+            profile?: null | {
+              /** 用户ID */
+              userId: number;
+              /** 真实姓名 */
+              realName: string | null;
+              /** 个性签名 */
+              bio: string | null;
+              /** 生日 */
+              birthday: null;
+              /** 性别 */
+              gender: number | null;
+              /** 身份证号 */
+              idCardNum: string | null;
+              /** 创建时间 */
+              createdAt: any;
+              /** 更新时间 */
+              updatedAt: null;
+            };
+          };
+        },
+        any
+      >({
+        path: `/user/${id}`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 更新用户
+     *
+     * @tags 用户
+     * @name UpdateUser
+     * @request PUT:/user/{id}
+     */
+    updateUser: (
+      id: number,
+      data: {
+        /**
+         * 密码
+         * @minLength 6
+         * @maxLength 32
+         */
+        password?: string;
+        /**
+         * 昵称
+         * @maxLength 50
+         */
+        nickname?: string;
+        /**
+         * 手机号
+         * @minLength 11
+         * @maxLength 11
+         */
+        mobile?: string;
+        /**
+         * 邮箱
+         * @format email
+         */
+        email?: string;
+        /** 头像URL */
+        avatar?: string;
+        /** 状态：0正常 1封禁 */
+        status?: number;
+        profile?: {
+          /**
+           * 真实姓名
+           * @maxLength 50
+           */
+          realName?: string;
+          /**
+           * 个性签名
+           * @maxLength 200
+           */
+          bio?: string;
+          /** 生日 */
+          birthday?: any;
+          /** 性别：0未知 1男性 2女性 */
+          gender?: number;
+          /**
+           * 身份证号
+           * @minLength 15
+           * @maxLength 18
+           */
+          idCardNum?: string;
+        };
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: {
+            /** 用户ID */
+            id: number;
+            /** 用户名 */
+            username: string;
+            /** 昵称 */
+            nickname: string | null;
+            /** 手机号 */
+            mobile: string | null;
+            /** 邮箱 */
+            email: string | null;
+            /** 头像 */
+            avatar: string | null;
+            /** 状态：0正常 1封禁 */
+            status: number;
+            /** 邀请人ID */
+            invitorId: number | null;
+            /** 创建时间 */
+            createdAt: any;
+            /** 更新时间 */
+            updatedAt: null;
+            roles?: {
+              /** 角色ID */
+              id: number;
+              /** 角色名称 */
+              name: string;
+              /** 角色代码 */
+              code: string;
+              /** 角色描述 */
+              desc: string | null;
+              /** 创建时间 */
+              createdAt: any;
+              /** 更新时间 */
+              updatedAt: null;
+            }[];
+            profile?: null | {
+              /** 用户ID */
+              userId: number;
+              /** 真实姓名 */
+              realName: string | null;
+              /** 个性签名 */
+              bio: string | null;
+              /** 生日 */
+              birthday: null;
+              /** 性别 */
+              gender: number | null;
+              /** 身份证号 */
+              idCardNum: string | null;
+              /** 创建时间 */
+              createdAt: any;
+              /** 更新时间 */
+              updatedAt: null;
+            };
+          };
+        },
+        any
+      >({
+        path: `/user/${id}`,
+        method: "PUT",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 删除用户
+     *
+     * @tags 用户
+     * @name DeleteUser
+     * @request DELETE:/user/{id}
+     */
+    deleteUser: (id: number, params: RequestParams = {}) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: {
+            /** 被删除的用户ID */
+            id: number;
+          };
+        },
+        any
+      >({
+        path: `/user/${id}`,
+        method: "DELETE",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 获取用户角色列表
+     *
+     * @tags 用户
+     * @name GetUserRoles
+     * @request GET:/user/{id}/roles
+     */
+    getUserRoles: (id: number, params: RequestParams = {}) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: {
+            /** 角色ID */
+            id: number;
+            /** 角色名称 */
+            name: string;
+            /** 角色代码 */
+            code: string;
+            /** 角色描述 */
+            desc: string | null;
+            /** 创建时间 */
+            createdAt: any;
+            /** 更新时间 */
+            updatedAt: null;
+          }[];
+        },
+        any
+      >({
+        path: `/user/${id}/roles`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 获取用户档案
+     *
+     * @tags 用户
+     * @name GetUserProfile
+     * @request GET:/user/{id}/profile
+     */
+    getUserProfile: (id: number, params: RequestParams = {}) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: null | {
+            /** 用户ID */
+            userId: number;
+            /** 真实姓名 */
+            realName: string | null;
+            /** 个性签名 */
+            bio: string | null;
+            /** 生日 */
+            birthday: null;
+            /** 性别 */
+            gender: number | null;
+            /** 身份证号 */
+            idCardNum: string | null;
+            /** 创建时间 */
+            createdAt: any;
+            /** 更新时间 */
+            updatedAt: null;
+          };
+        },
+        any
+      >({
+        path: `/user/${id}/profile`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 获取用户权限列表
+     *
+     * @tags 用户
+     * @name GetUserPermissions
+     * @request GET:/user/{id}/allPermissions
+     */
+    getUserPermissions: (id: number, params: RequestParams = {}) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: {
+            /** 权限ID */
+            id: number;
+            /** 权限名称 */
+            name: string;
+            /** 权限码 */
+            code: string;
+            /** 创建时间 */
+            createdAt: any;
+            /** 更新时间 */
+            updatedAt: null;
+          }[];
+        },
+        any
+      >({
+        path: `/user/${id}/allPermissions`,
+        method: "GET",
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 分配角色给用户
+     *
+     * @tags 用户
+     * @name AssignRolesToUser
+     * @request POST:/user/{id}/assignRoles
+     */
+    assignRolesToUser: (
+      id: number,
+      data: {
+        /**
+         * 角色ID数组
+         * @minItems 1
+         */
+        roleIds: number[];
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: null;
+        },
+        any
+      >({
+        path: `/user/${id}/assignRoles`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 取消用户的指定角色
+     *
+     * @tags 用户
+     * @name UnassignUserRoles
+     * @request POST:/user/{id}/unassignRoles
+     */
+    unassignUserRoles: (
+      id: number,
+      data: {
+        /**
+         * 角色ID数组
+         * @minItems 1
+         */
+        roleIds: number[];
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: null;
+        },
+        any
+      >({
+        path: `/user/${id}/unassignRoles`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
         format: "json",
         ...params,
       }),
@@ -1571,7 +2300,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 知识库ID */
             id: number;
             /** 知识库名称 */
@@ -1616,7 +2345,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 知识库ID */
             id: number;
             /** 知识库名称 */
@@ -1680,7 +2409,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 知识库ID */
             id: number;
             /** 知识库名称 */
@@ -1725,7 +2454,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             id: number;
           };
         },
@@ -1746,6 +2475,13 @@ export class Api<
      */
     listKnowledgeDocuments: (
       query: {
+        /**
+         * 知识库ID
+         * @min 1
+         */
+        knowledgeBaseId: number;
+        /** @minLength 1 */
+        status?: string;
         /**
          * 页码，从1开始，默认为1
          * @min 1
@@ -1768,13 +2504,6 @@ export class Api<
         cursorKey?: string;
         /** 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id` */
         sort?: string;
-        /**
-         * 知识库ID
-         * @min 1
-         */
-        knowledgeBaseId: number;
-        /** @minLength 1 */
-        status?: string;
       },
       params: RequestParams = {},
     ) =>
@@ -1996,6 +2725,20 @@ export class Api<
         query: query,
         ...params,
       }),
+
+    /**
+     * @description 测试处理器，新增异步任务，会由消费者异步处理
+     *
+     * @tags 处理器
+     * @name TestProcessor
+     * @request GET:/processor/testProcessor
+     */
+    testProcessor: (params: RequestParams = {}) =>
+      this.request<void, any>({
+        path: `/processor/testProcessor`,
+        method: "GET",
+        ...params,
+      }),
   };
   qBank = {
     /**
@@ -2007,6 +2750,10 @@ export class Api<
      */
     listQBanks: (
       query?: {
+        /** 搜索关键词 */
+        search?: string;
+        /** 是否获取SKU */
+        withSkus?: boolean;
         /**
          * 页码，从1开始，默认为1
          * @min 1
@@ -2029,8 +2776,6 @@ export class Api<
         cursorKey?: string;
         /** 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id` */
         sort?: string;
-        /** 是否获取SKU */
-        withSkus?: boolean;
       },
       params: RequestParams = {},
     ) =>
@@ -2202,7 +2947,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 题库ID */
             id: number;
             /** 题库名称 */
@@ -2286,7 +3031,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 题库ID */
             id: number;
             /** 题库名称 */
@@ -2431,7 +3176,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 题库ID */
             id: number;
             /** 题库名称 */
@@ -2515,7 +3260,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /**
              * 题库ID
              * @min 1
@@ -2694,7 +3439,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** SKU ID */
             id: number;
             /** 题库ID */
@@ -2765,7 +3510,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** SKU ID */
             id: number;
             /** 题库ID */
@@ -2869,7 +3614,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** SKU ID */
             id: number;
             /** 题库ID */
@@ -2940,7 +3685,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             id: number;
           };
         },
@@ -2963,6 +3708,26 @@ export class Api<
     listQuestions: (
       query?: {
         /**
+         * 题库ID
+         * @min 1
+         */
+        qBankId?: number;
+        /**
+         * 试题类型
+         * @min 1
+         * @max 8
+         */
+        type?: number;
+        /**
+         * 关键词搜索
+         * @maxLength 100
+         */
+        keyword?: string;
+        /** 是否包含内容详情 */
+        withBody?: boolean;
+        /** 是否包含统计信息 */
+        withStat?: boolean;
+        /**
          * 页码，从1开始，默认为1
          * @min 1
          * @default 1
@@ -2984,26 +3749,6 @@ export class Api<
         cursorKey?: string;
         /** 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id` */
         sort?: string;
-        /**
-         * 题库ID
-         * @min 1
-         */
-        qBankId?: number;
-        /**
-         * 试题类型
-         * @min 1
-         * @max 8
-         */
-        type?: number;
-        /**
-         * 关键词搜索
-         * @maxLength 100
-         */
-        keyword?: string;
-        /** 是否包含内容详情 */
-        withBody?: boolean;
-        /** 是否包含统计信息 */
-        withStat?: boolean;
       },
       params: RequestParams = {},
     ) =>
@@ -3132,7 +3877,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 试题ID */
             id: number;
             /** 所属题库ID */
@@ -3203,7 +3948,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 试题ID */
             id: number;
             /** 所属题库ID */
@@ -3305,7 +4050,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 试题ID */
             id: number;
             /** 所属题库ID */
@@ -3376,7 +4121,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /**
              * 试题ID
              * @min 1
@@ -3429,7 +4174,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 成功数量 */
             successCount: number;
             /** 失败数量 */
@@ -3456,8 +4201,28 @@ export class Api<
      * @request GET:/question/qBank/{qBankId}
      */
     listQuestionsByQBank: (
-      qBankId: string,
+      qBankId: number,
       query?: {
+        /**
+         * 题库ID
+         * @min 1
+         */
+        qBankId?: number;
+        /**
+         * 试题类型
+         * @min 1
+         * @max 8
+         */
+        type?: number;
+        /**
+         * 关键词搜索
+         * @maxLength 100
+         */
+        keyword?: string;
+        /** 是否包含内容详情 */
+        withBody?: boolean;
+        /** 是否包含统计信息 */
+        withStat?: boolean;
         /**
          * 页码，从1开始，默认为1
          * @min 1
@@ -3480,26 +4245,6 @@ export class Api<
         cursorKey?: string;
         /** 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id` */
         sort?: string;
-        /**
-         * 题库ID
-         * @min 1
-         */
-        qBankId?: number;
-        /**
-         * 试题类型
-         * @min 1
-         * @max 8
-         */
-        type?: number;
-        /**
-         * 关键词搜索
-         * @maxLength 100
-         */
-        keyword?: string;
-        /** 是否包含内容详情 */
-        withBody?: boolean;
-        /** 是否包含统计信息 */
-        withStat?: boolean;
       },
       params: RequestParams = {},
     ) =>
@@ -3586,6 +4331,26 @@ export class Api<
     searchQuestions: (
       query?: {
         /**
+         * 题库ID
+         * @min 1
+         */
+        qBankId?: number;
+        /**
+         * 试题类型
+         * @min 1
+         * @max 8
+         */
+        type?: number;
+        /**
+         * 关键词搜索
+         * @maxLength 100
+         */
+        keyword?: string;
+        /** 是否包含内容详情 */
+        withBody?: boolean;
+        /** 是否包含统计信息 */
+        withStat?: boolean;
+        /**
          * 页码，从1开始，默认为1
          * @min 1
          * @default 1
@@ -3607,26 +4372,6 @@ export class Api<
         cursorKey?: string;
         /** 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id` */
         sort?: string;
-        /**
-         * 题库ID
-         * @min 1
-         */
-        qBankId?: number;
-        /**
-         * 试题类型
-         * @min 1
-         * @max 8
-         */
-        type?: number;
-        /**
-         * 关键词搜索
-         * @maxLength 100
-         */
-        keyword?: string;
-        /** 是否包含内容详情 */
-        withBody?: boolean;
-        /** 是否包含统计信息 */
-        withStat?: boolean;
       },
       params: RequestParams = {},
     ) =>
@@ -3697,6 +4442,151 @@ export class Api<
         any
       >({
         path: `/question/search`,
+        method: "GET",
+        query: query,
+        format: "json",
+        ...params,
+      }),
+  };
+  quiz = {
+    /**
+     * @description 提交用户答题历史
+     *
+     * @tags 答题
+     * @name SubmitQuizHistory
+     * @request POST:/quiz/submit
+     */
+    submitQuizHistory: (
+      data: {
+        /**
+         * 题库ID
+         * @min 1
+         */
+        qBankId: number;
+        /**
+         * 答案列表
+         * @minItems 1
+         */
+        answerList: {
+          /**
+           * 试题ID
+           * @min 1
+           */
+          qId: number;
+          /** 用户答案 */
+          answer: string;
+        }[];
+        /** 最后做题的前端索引 */
+        lastIndex?: number;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: null;
+        },
+        any
+      >({
+        path: `/quiz/submit`,
+        method: "POST",
+        body: data,
+        type: ContentType.Json,
+        format: "json",
+        ...params,
+      }),
+
+    /**
+     * @description 获取用户答题历史
+     *
+     * @tags 答题
+     * @name GetQuizHistories
+     * @request GET:/quiz/histories
+     */
+    getQuizHistories: (
+      query?: {
+        /**
+         * 题库ID
+         * @min 1
+         */
+        qBankId?: number;
+        /**
+         * 页码，从1开始，默认为1
+         * @min 1
+         * @default 1
+         */
+        page?: number;
+        /**
+         * 每页条数，默认为10，最小为5，最大为100
+         * @min 5
+         * @max 100
+         * @default 10
+         */
+        take?: number;
+        /** 游标分页，上次的ID */
+        lastId?: number;
+        /**
+         * 游标分页，使用的键
+         * @default "id"
+         */
+        cursorKey?: string;
+        /** 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id` */
+        sort?: string;
+      },
+      params: RequestParams = {},
+    ) =>
+      this.request<
+        {
+          /**
+           * 状态码
+           * @default 0
+           */
+          code: number;
+          /**
+           * 响应消息
+           * @default "OK"
+           */
+          msg: string;
+          data: {
+            /** 总记录数 */
+            totalCount?: number;
+            /** 总页数 */
+            totalPage?: number;
+            /** 当前页码 */
+            page?: number;
+            /** 每页条数 */
+            take: number;
+            /** 数据列表 */
+            list: {
+              /** 历史记录ID */
+              id: number;
+              /** 创建时间 */
+              createdAt: any;
+              /** 更新时间 */
+              updatedAt: null;
+              qBank: {
+                /** 题库ID */
+                id: number;
+                /** 题库名称 */
+                name: string;
+                /** 试题数量 */
+                questionCount: number;
+              } | null;
+            }[];
+          };
+        },
+        any
+      >({
+        path: `/quiz/histories`,
         method: "GET",
         query: query,
         format: "json",
@@ -3975,6 +4865,16 @@ export class Api<
     listThirdPartyFiles: (
       query?: {
         /**
+         * 文件名
+         * @minLength 0
+         * @maxLength 50
+         */
+        name?: string;
+        /** 开始时间 */
+        startTime?: number;
+        /** 结束时间 */
+        endTime?: number;
+        /**
          * 页码，从1开始，默认为1
          * @min 1
          * @default 1
@@ -3996,16 +4896,6 @@ export class Api<
         cursorKey?: string;
         /** 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id` */
         sort?: string;
-        /**
-         * 文件名
-         * @minLength 0
-         * @maxLength 50
-         */
-        name?: string;
-        /** 开始时间 */
-        startTime?: number;
-        /** 结束时间 */
-        endTime?: number;
       },
       params: RequestParams = {},
     ) =>
@@ -4126,7 +5016,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 钱包ID */
             id: number;
             /** 用户ID */
@@ -4188,27 +5078,25 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data:
-            | null
-            | {
-                /** 钱包ID */
-                id: number;
-                /** 用户ID */
-                userId: number;
-                /**
-                 * 钱包账户类型
-                 * @default "Balance"
-                 */
-                type: "Balance" | "RewardPoint" | "AiPoint";
-                /** 用户余额，单位：分 */
-                balance: number;
-                /** 冻结余额，单位：分 */
-                frozenBalance: number;
-                /** 创建时间 */
-                createdAt: any;
-                /** 更新时间 */
-                updatedAt: null;
-              }[];
+          data: {
+            /** 钱包ID */
+            id: number;
+            /** 用户ID */
+            userId: number;
+            /**
+             * 钱包账户类型
+             * @default "Balance"
+             */
+            type: "Balance" | "RewardPoint" | "AiPoint";
+            /** 用户余额，单位：分 */
+            balance: number;
+            /** 冻结余额，单位：分 */
+            frozenBalance: number;
+            /** 创建时间 */
+            createdAt: any;
+            /** 更新时间 */
+            updatedAt: null;
+          }[];
         },
         {
           /**
@@ -4260,37 +5148,35 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data:
-            | null
-            | {
-                /** 变动记录ID */
-                id: number;
-                /** 用户ID */
-                userId: number;
-                /**
-                 * 钱包账户类型
-                 * @default "Balance"
-                 */
-                type: "Balance" | "RewardPoint" | "AiPoint";
-                /** 关联钱包ID */
-                walletId: number;
-                /** 变动金额，正数增加，负数减少，单位：分 */
-                amount: number;
-                /** 变动前余额，单位：分 */
-                amountBefore: number;
-                /** 变动后余额，单位：分 */
-                amountAfter: number;
-                /** 业务类型标识符，如：RECHARGE、WITHDRAWAL等 */
-                bizType: string;
-                /** 关联业务单号，如订单号、提现ID等 */
-                refBizId: string | null;
-                /** 变动说明，用户可见 */
-                desc: string | null;
-                /** 管理员备注，内部使用 */
-                remark: string | null;
-                /** 创建时间 */
-                createdAt: any;
-              }[];
+          data: {
+            /** 变动记录ID */
+            id: number;
+            /** 用户ID */
+            userId: number;
+            /**
+             * 钱包账户类型
+             * @default "Balance"
+             */
+            type: "Balance" | "RewardPoint" | "AiPoint";
+            /** 关联钱包ID */
+            walletId: number;
+            /** 变动金额，正数增加，负数减少，单位：分 */
+            amount: number;
+            /** 变动前余额，单位：分 */
+            amountBefore: number;
+            /** 变动后余额，单位：分 */
+            amountAfter: number;
+            /** 业务类型标识符，如：RECHARGE、WITHDRAWAL等 */
+            bizType: string;
+            /** 关联业务单号，如订单号、提现ID等 */
+            refBizId: string | null;
+            /** 变动说明，用户可见 */
+            desc: string | null;
+            /** 管理员备注，内部使用 */
+            remark: string | null;
+            /** 创建时间 */
+            createdAt: any;
+          }[];
         },
         {
           /**
@@ -4350,7 +5236,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 提现记录ID */
             id: number;
             /** 用户ID */
@@ -4420,34 +5306,32 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data:
-            | null
-            | {
-                /** 提现记录ID */
-                id: number;
-                /** 用户ID */
-                userId: number;
-                /** 处理人ID，管理员或审核人员 */
-                processorId: number | null;
-                /** 提现状态：1已申请 2审核通过 3审核拒绝 4已打款 5打款失败 */
-                status: number;
-                /** 提现金额，单位：分 */
-                amount: number;
-                /** 提现渠道，如：支付宝、微信、银行卡等 */
-                channel: string;
-                /** 用户申请时的备注说明 */
-                userRemark: string | null;
-                /** 管理员审核时的备注说明 */
-                adminRemark: string | null;
-                /** 拒绝原因，仅在审核拒绝时填写 */
-                rejectMsg: string | null;
-                /** 申请时间 */
-                createdAt: any;
-                /** 审核时间 */
-                reviewedAt: null;
-                /** 打款时间 */
-                paidAt: null;
-              }[];
+          data: {
+            /** 提现记录ID */
+            id: number;
+            /** 用户ID */
+            userId: number;
+            /** 处理人ID，管理员或审核人员 */
+            processorId: number | null;
+            /** 提现状态：1已申请 2审核通过 3审核拒绝 4已打款 5打款失败 */
+            status: number;
+            /** 提现金额，单位：分 */
+            amount: number;
+            /** 提现渠道，如：支付宝、微信、银行卡等 */
+            channel: string;
+            /** 用户申请时的备注说明 */
+            userRemark: string | null;
+            /** 管理员审核时的备注说明 */
+            adminRemark: string | null;
+            /** 拒绝原因，仅在审核拒绝时填写 */
+            rejectMsg: string | null;
+            /** 申请时间 */
+            createdAt: any;
+            /** 审核时间 */
+            reviewedAt: null;
+            /** 打款时间 */
+            paidAt: null;
+          }[];
         },
         {
           /**
@@ -4490,34 +5374,32 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data:
-            | null
-            | {
-                /** 提现记录ID */
-                id: number;
-                /** 用户ID */
-                userId: number;
-                /** 处理人ID，管理员或审核人员 */
-                processorId: number | null;
-                /** 提现状态：1已申请 2审核通过 3审核拒绝 4已打款 5打款失败 */
-                status: number;
-                /** 提现金额，单位：分 */
-                amount: number;
-                /** 提现渠道，如：支付宝、微信、银行卡等 */
-                channel: string;
-                /** 用户申请时的备注说明 */
-                userRemark: string | null;
-                /** 管理员审核时的备注说明 */
-                adminRemark: string | null;
-                /** 拒绝原因，仅在审核拒绝时填写 */
-                rejectMsg: string | null;
-                /** 申请时间 */
-                createdAt: any;
-                /** 审核时间 */
-                reviewedAt: null;
-                /** 打款时间 */
-                paidAt: null;
-              }[];
+          data: {
+            /** 提现记录ID */
+            id: number;
+            /** 用户ID */
+            userId: number;
+            /** 处理人ID，管理员或审核人员 */
+            processorId: number | null;
+            /** 提现状态：1已申请 2审核通过 3审核拒绝 4已打款 5打款失败 */
+            status: number;
+            /** 提现金额，单位：分 */
+            amount: number;
+            /** 提现渠道，如：支付宝、微信、银行卡等 */
+            channel: string;
+            /** 用户申请时的备注说明 */
+            userRemark: string | null;
+            /** 管理员审核时的备注说明 */
+            adminRemark: string | null;
+            /** 拒绝原因，仅在审核拒绝时填写 */
+            rejectMsg: string | null;
+            /** 申请时间 */
+            createdAt: any;
+            /** 审核时间 */
+            reviewedAt: null;
+            /** 打款时间 */
+            paidAt: null;
+          }[];
         },
         {
           /**
@@ -4579,7 +5461,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 提现记录ID */
             id: number;
             /** 用户ID */
@@ -4673,7 +5555,7 @@ export class Api<
            * @default "OK"
            */
           msg: string;
-          data: null | {
+          data: {
             /** 变动记录ID */
             id: number;
             /** 用户ID */

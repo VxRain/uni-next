@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, watch, onMounted } from 'vue'
+import { debounce } from 'es-toolkit'
 import { httpApi } from '@/utils/httpApi'
 
 interface QuestionBank {
@@ -47,6 +48,7 @@ const fetchQuestionBanks = async () => {
   error.value = null
   try {
     const response = await httpApi.qBank.listQBanks({
+      search: searchKeyword.value || undefined,
       page: 1,
       take: 50,
       withSkus: true,
@@ -64,20 +66,11 @@ const fetchQuestionBanks = async () => {
   }
 }
 
-// 过滤后的列表
-const filteredBanks = computed(() => {
-  if (!searchKeyword.value) {
-    return questionBanks.value
-  }
-  const keyword = searchKeyword.value.toLowerCase()
-  return questionBanks.value.filter(bank => {
-    return (
-      bank.name.toLowerCase().includes(keyword) ||
-      (bank.desc && bank.desc.toLowerCase().includes(keyword)) ||
-      (bank.subTitle && bank.subTitle.toLowerCase().includes(keyword))
-    )
-  })
-})
+// 防抖搜索
+const debouncedSearch = debounce(fetchQuestionBanks, 300)
+
+// 监听搜索关键词
+watch(searchKeyword, debouncedSearch)
 
 // 组件挂载时获取数据
 onMounted(() => {
@@ -86,7 +79,7 @@ onMounted(() => {
 
 function handleBankClick(bank: QuestionBank) {
   uni.navigateTo({
-    url: `/pages/question-detail/index?id=${bank.id}`,
+    url: `/pages/qbank-detail/index?id=${bank.id}`,
   })
 }
 </script>
@@ -112,7 +105,7 @@ function handleBankClick(bank: QuestionBank) {
     </view>
 
     <!-- 加载状态 -->
-    <view v-if="loading && filteredBanks.length === 0" class="loading-state">
+    <view v-if="loading && questionBanks.length === 0" class="loading-state">
       <view class="i-carbon-circle-notch loading-icon" />
       <text class="loading-text">加载中...</text>
     </view>
@@ -129,7 +122,7 @@ function handleBankClick(bank: QuestionBank) {
     <!-- 题库列表 -->
     <view v-else class="bank-list">
       <view
-        v-for="bank in filteredBanks"
+        v-for="bank in questionBanks"
         :key="bank.id"
         class="bank-card"
         @click="handleBankClick(bank)"
@@ -160,7 +153,7 @@ function handleBankClick(bank: QuestionBank) {
       </view>
 
       <!-- 空状态 -->
-      <view v-if="filteredBanks.length === 0" class="empty-state">
+      <view v-if="questionBanks.length === 0" class="empty-state">
         <view class="i-carbon-search-locate empty-icon" />
         <text class="empty-text">没有找到相关题库</text>
         <text class="empty-hint">试试其他关键词吧</text>
