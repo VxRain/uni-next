@@ -568,6 +568,7 @@ onLoad((options: any) => {
 }
 
 .action-btn {
+  margin-left: auto;
   padding: 10px 32px;
   background: linear-gradient(135deg, #ff6b00 0%, #ff8533 100%);
   border-radius: 24px;
