@@ -5,9 +5,6 @@
   "versionName": "1.0.0",
   "versionCode": "100",
   "transformPx": false,
-  "uniStatistics": {
-    "enable": false
-  },
   "app-plus": {
     "usingComponents": true,
     "nvueStyleCompiler": "uni-app",
@@ -43,9 +40,11 @@
       "sdkConfigs": {}
     }
   },
-  "h5": {
-    "darkmode": true,
-    "themeLocation": "theme.json"
+  "app-harmony": {
+    "distribute": {}
+  },
+  "mp-harmony": {
+    "distribute": {}
   },
   "quickapp": {},
   "mp-weixin": {
@@ -66,5 +65,12 @@
   "mp-toutiao": {
     "usingComponents": true
   },
-  "vueVersion": "3"
+  "uniStatistics": {
+    "enable": false
+  },
+  "vueVersion": "3",
+  "h5": {
+    "darkmode": true,
+    "themeLocation": "theme.json"
+  }
 }

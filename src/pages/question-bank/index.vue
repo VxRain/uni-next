@@ -1,32 +1,10 @@
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
-import { debounce } from 'es-toolkit'
-import { httpApi } from '@/utils/httpApi'
+import { listQBanks, type ListQBanksResponses } from '@/utils/httpApi';
+import { debounce } from 'es-toolkit';
+import { onMounted, ref, watch } from 'vue';
 
-interface QuestionBank {
-  id: number
-  name: string
-  subTitle: string | null
-  desc: string | null
-  content: string | null
-  cover: string | null
-  questionCount: number
-  createdAt: any
-  updatedAt: any
-  skus?: {
-    id: number
-    qBankId: number
-    name: string
-    desc: string | null
-    price: number
-    marketPrice: number
-    validType: 'Day' | 'Fixed' | 'Permanent'
-    validDay: number | null
-    validDate: string | null
-    createdAt: any
-    updatedAt: any
-  }[]
-}
+// 从 SDK 类型中提取数据类型
+type QBanks = ListQBanksResponses[200]['data']['list'];
 
 definePage({
   style: {
@@ -38,7 +16,7 @@ definePage({
 
 // 状态
 const searchKeyword = ref('')
-const questionBanks = ref<QuestionBank[]>([])
+const questionBanks = ref<QBanks>([])
 const loading = ref(false)
 const error = ref<string | null>(null)
 
@@ -47,16 +25,19 @@ const fetchQuestionBanks = async () => {
   loading.value = true
   error.value = null
   try {
-    const response = await httpApi.qBank.listQBanks({
-      search: searchKeyword.value || undefined,
-      page: 1,
-      take: 50,
-      withSkus: true,
+    const response = await listQBanks({
+      query: {
+        search: searchKeyword.value || undefined,
+        page: 1,
+        take: 50,
+        withSkus: true,
+      },
     })
-    if (response.data.code === 0) {
-      questionBanks.value = response.data.data.list
+    if (response.data?.code === 0) {
+      // 类型转换
+      questionBanks.value = response.data.data.list;
     } else {
-      error.value = response.data.msg || '加载失败'
+      error.value = response.data?.msg || '加载失败'
     }
   } catch (err) {
     error.value = '网络请求失败，请稍后重试'
@@ -77,7 +58,7 @@ onMounted(() => {
   fetchQuestionBanks()
 })
 
-function handleBankClick(bank: QuestionBank) {
+function handleBankClick(bank: QBanks[number]) {
   uni.navigateTo({
     url: `/pages/qbank-detail/index?id=${bank.id}`,
   })
@@ -90,17 +71,9 @@ function handleBankClick(bank: QuestionBank) {
     <view class="search-section">
       <view class="search-box">
         <view class="i-carbon-search search-icon" />
-        <input
-          v-model="searchKeyword"
-          class="search-input"
-          placeholder="搜索题库..."
-          placeholder-class="search-placeholder"
-        >
-        <view
-          v-if="searchKeyword"
-          class="i-carbon-close search-clear"
-          @click="searchKeyword = ''"
-        />
+        <input v-model="searchKeyword" class="search-input" placeholder="搜索题库..."
+          placeholder-class="search-placeholder">
+        <view v-if="searchKeyword" class="i-carbon-close search-clear" @click="searchKeyword = ''" />
       </view>
     </view>
 
@@ -121,12 +94,7 @@ function handleBankClick(bank: QuestionBank) {
 
     <!-- 题库列表 -->
     <view v-else class="bank-list">
-      <view
-        v-for="bank in questionBanks"
-        :key="bank.id"
-        class="bank-card"
-        @click="handleBankClick(bank)"
-      >
+      <view v-for="bank in questionBanks" :key="bank.id" class="bank-card" @click="handleBankClick(bank)">
         <!-- 卡片头部 -->
         <view class="card-header">
           <text class="bank-title">{{ bank.name }}</text>
@@ -231,6 +199,7 @@ function handleBankClick(bank: QuestionBank) {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

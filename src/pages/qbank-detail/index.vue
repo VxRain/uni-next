@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { onLoad } from '@dcloudio/uni-app'
-import { httpApi } from '@/utils/httpApi'
+import { getQBank, type GetQBankResponses } from '@/utils/httpApi'
 
 interface MenuItem {
   key: string
@@ -9,32 +9,9 @@ interface MenuItem {
   icon: string
 }
 
-interface Sku {
-  id: number
-  qBankId: number
-  name: string
-  desc: string | null
-  price: number
-  marketPrice: number
-  validType: 'Day' | 'Fixed' | 'Permanent'
-  validDay: number | null
-  validDate: string | null
-  createdAt: any
-  updatedAt: any
-}
-
-interface QBankDetail {
-  id: number
-  name: string
-  subTitle: string | null
-  desc: string | null
-  content: string | null
-  cover: string | null
-  questionCount: number
-  createdAt: any
-  updatedAt: any
-  skus?: Sku[]
-}
+// 从 SDK 类型中提取数据类型
+type QBankDetail = GetQBankResponses[200]['data']
+type Sku = NonNullable<QBankDetail['skus']>[number]
 
 definePage({
   style: {
@@ -75,15 +52,16 @@ const fetchQBankDetail = async () => {
   loading.value = true
   error.value = null
   try {
-    const response = await httpApi.qBank.getQBank(qBankId.value)
-    if (response.data.code === 0) {
-      qBankDetail.value = response.data.data
+    const response = await getQBank({ path: { id: qBankId.value } })
+    if (response.data?.code === 0) {
+      const data = response.data.data
+      qBankDetail.value = data
       // 默认选中第一个 SKU
-      if (qBankDetail.value.skus && qBankDetail.value.skus.length > 0) {
+      if (qBankDetail.value?.skus && qBankDetail.value.skus.length > 0) {
         selectedSkuId.value = qBankDetail.value.skus[0].id
       }
     } else {
-      error.value = response.data.msg || '加载失败'
+      error.value = response.data?.msg || '加载失败'
     }
   } catch (err) {
     error.value = '网络请求失败，请稍后重试'
@@ -104,7 +82,7 @@ const formatValidText = (sku: Sku) => {
   if (sku.validType === 'Permanent') return '永久有效'
   if (sku.validType === 'Day' && sku.validDay) return `${sku.validDay}天`
   if (sku.validType === 'Fixed' && sku.validDate) {
-    return `至 ${new Date(sku.validDate).toLocaleDateString()}`
+    return `至 ${new Date(sku.validDate as string).toLocaleDateString()}`
   }
   return ''
 }
@@ -153,7 +131,7 @@ onLoad((options: any) => {
       <view class="header-section">
         <!-- 封面 -->
         <view v-if="qBankDetail.cover" class="cover-wrapper">
-          <image :src="qBankDetail.cover" class="cover-image" mode="aspectFill" />
+          <image :src="qBankDetail.cover as string" class="cover-image" mode="aspectFill" />
         </view>
 
         <!-- 基本信息 -->
@@ -184,12 +162,7 @@ onLoad((options: any) => {
       <!-- 功能菜单 -->
       <view class="section-card">
         <view class="menu-grid">
-          <view
-            v-for="item in menuItems"
-            :key="item.key"
-            class="menu-item"
-            @click="handleMenuClick(item)"
-          >
+          <view v-for="item in menuItems" :key="item.key" class="menu-item" @click="handleMenuClick(item)">
             <view :class="item.icon" class="menu-icon" />
             <text class="menu-label">{{ item.label }}</text>
           </view>
@@ -200,13 +173,8 @@ onLoad((options: any) => {
       <view v-if="qBankDetail.skus && qBankDetail.skus.length > 0" class="section-card">
         <text class="section-title">选择套餐</text>
         <view class="sku-list">
-          <view
-            v-for="sku in qBankDetail.skus"
-            :key="sku.id"
-            class="sku-card"
-            :class="{ 'sku-card-selected': selectedSkuId === sku.id }"
-            @click="selectedSkuId = sku.id"
-          >
+          <view v-for="sku in qBankDetail.skus" :key="sku.id" class="sku-card"
+            :class="{ 'sku-card-selected': selectedSkuId === sku.id }" @click="selectedSkuId = sku.id">
             <view class="sku-header">
               <text class="sku-name">{{ sku.name }}</text>
               <text class="sku-price">{{ formatPrice(sku.price) }}</text>
