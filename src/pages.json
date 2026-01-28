@@ -32,6 +32,19 @@
         "navigationBarBackgroundColor": "#ffffff",
         "navigationBarTextStyle": "black"
       }
+    },
+    {
+      "path": "pages/quiz/index",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "答题",
+        "navigationBarBackgroundColor": "#ffffff",
+        "navigationBarTextStyle": "black"
+      }
+    },
+    {
+      "path": "pages/quiz/components/QuestionDrawerList",
+      "type": "page"
     }
   ],
   "subPackages": []

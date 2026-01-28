@@ -41,8 +41,18 @@ const menuItems: MenuItem[] = [
 
 // 功能菜单点击
 const handleMenuClick = (item: MenuItem) => {
-  console.log('点击菜单:', item.key)
-  // TODO: 根据不同类型跳转到对应页面
+  if (!selectedSku.value) {
+    uni.showToast({
+      title: '请先选择套餐',
+      icon: 'none'
+    })
+    return
+  }
+
+  // 跳转到答题页面
+  uni.navigateTo({
+    url: `/pages/quiz/index?id=${qBankId.value}&skuId=${selectedSku.value.id}&mode=${item.key}`
+  })
 }
 
 // 获取题库详情
@@ -95,8 +105,11 @@ const formatPrice = (price: number) => {
 // 开始练习
 const handleStartPractice = () => {
   if (!selectedSku.value) return
-  // TODO: 跳转到练习页面
-  console.log('开始练习', { qBankId: qBankId.value, skuId: selectedSku.value.id })
+
+  // 跳转到答题页面（顺序练习模式）
+  uni.navigateTo({
+    url: `/pages/quiz/index?id=${qBankId.value}&skuId=${selectedSku.value.id}&mode=sequence`
+  })
 }
 
 // 页面加载
