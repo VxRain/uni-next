@@ -10,7 +10,7 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "gen-api": "swagger-typescript-api generate --path http://127.0.0.1:3000/docs/openapi.json  --output ./src/utils/generatedApi --axios"
+    "gen-api": "openapi-ts"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-4080520251106001",
@@ -46,6 +46,7 @@
     "@dcloudio/uni-cli-shared": "3.0.0-4080520251106001",
     "@dcloudio/uni-stacktracey": "3.0.0-4080520251106001",
     "@dcloudio/vite-plugin-uni": "3.0.0-4080520251106001",
+    "@hey-api/openapi-ts": "^0.90.10",
     "@iconify-json/carbon": "^1.2.15",
     "@mini-types/alipay": "^3.0.14",
     "@types/node": "^25.0.3",
@@ -63,7 +64,6 @@
     "eslint": "^9.39.1",
     "miniprogram-api-typings": "^4.1.2",
     "sass": "1.64.2",
-    "swagger-typescript-api": "^13.2.16",
     "typescript": "^5.9.3",
     "unocss": "66.0.0",
     "vite": "5.2.8",

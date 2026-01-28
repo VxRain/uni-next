@@ -2,7 +2,7 @@
 
 import type { Client, Options as Options2, TDataShape } from './client';
 import { client } from './client.gen';
-import type { AdjustBalanceData, AdjustBalanceErrors, AdjustBalanceResponses, AssignPermissionsToRoleData, AssignPermissionsToRoleResponses, AssignRolesToUserData, AssignRolesToUserResponses, BatchOperationQuestionsData, BatchOperationQuestionsResponses, ChatWithKnowledgeBaseData, ChatWithKnowledgeBaseResponses, CreateKnowledgeBaseData, CreateKnowledgeBaseResponses, CreatePermissionData, CreatePermissionResponses, CreateQBankData, CreateQBankResponses, CreateQBankSkuData, CreateQBankSkuResponses, CreateQuestionData, CreateQuestionResponses, CreateRoleData, CreateRoleResponses, CreateShortUrlData, CreateShortUrlResponses, CreateThirdPartyFileUrlData, CreateThirdPartyFileUrlResponses, CreateUserData, CreateUserResponses, CreateWithdrawalData, CreateWithdrawalErrors, CreateWithdrawalResponses, DeleteFileData, DeleteFileResponses, DeleteKnowledgeBaseData, DeleteKnowledgeBaseResponses, DeleteKnowledgeDocumentData, DeleteKnowledgeDocumentResponses, DeletePermissionData, DeletePermissionResponses, DeleteQBankData, DeleteQBankResponses, DeleteQBankSkuData, DeleteQBankSkuResponses, DeleteQuestionData, DeleteQuestionResponses, DeleteRoleData, DeleteRoleResponses, DeleteShortUrlData, DeleteShortUrlResponses, DeleteThirdPartyFileData, DeleteThirdPartyFileResponses, DeleteUserData, DeleteUserResponses, GetCaptchaData, GetCaptchaResponses, GetCaptchaWithIdData, GetCaptchaWithIdResponses, GetCaptchaWithSignData, GetCaptchaWithSignResponses, GetCdnTrafficStatData, GetCdnTrafficStatResponses, GetCdnUsedTrafficData, GetCdnUsedTrafficResponses, GetDevTokenData, GetDevTokenErrors, GetDevTokenResponses, GetFileData, GetFileResponses, GetKnowledgeBaseData, GetKnowledgeBaseResponses, GetPermissionData, GetPermissionResponses, GetPlaceholderImageData, GetPlaceholderImageResponses, GetQBankData, GetQBankResponses, GetQBankSkuData, GetQBankSkuResponses, GetQuestionData, GetQuestionResponses, GetQuizHistoriesData, GetQuizHistoriesResponses, GetRoleData, GetRolePermissionsData, GetRolePermissionsResponses, GetRoleResponses, GetThirdPartyUploadParamsData, GetThirdPartyUploadParamsResponses, GetUserData, GetUserPermissionsData, GetUserPermissionsResponses, GetUserProfileData, GetUserProfileResponses, GetUserResponses, GetUserRolesData, GetUserRolesResponses, GetWalletBalanceData, GetWalletBalanceErrors, GetWalletBalanceResponses, ListAllPermissionsData, ListAllPermissionsResponses, ListAllRolesData, ListAllRolesResponses, ListAllWithdrawalsData, ListAllWithdrawalsErrors, ListAllWithdrawalsResponses, ListFilesData, ListFilesResponses, ListKnowledgeBasesData, ListKnowledgeBasesResponses, ListKnowledgeDocumentsData, ListKnowledgeDocumentsResponses, ListPermissionsData, ListPermissionsResponses, ListQBanksData, ListQBankSkusData, ListQBankSkusResponses, ListQBanksResponses, ListQuestionsByQBankData, ListQuestionsByQBankResponses, ListQuestionsData, ListQuestionsResponses, ListRolesData, ListRolesResponses, ListShortUrlsData, ListShortUrlsResponses, ListThirdPartyFilesData, ListThirdPartyFilesResponses, ListUserDomainsData, ListUserDomainsResponses, ListUsersData, ListUsersResponses, ListUserWalletsData, ListUserWalletsErrors, ListUserWalletsResponses, ListUserWithdrawalsData, ListUserWithdrawalsErrors, ListUserWithdrawalsResponses, ListWalletChangesData, ListWalletChangesErrors, ListWalletChangesResponses, LoginData, LoginErrors, LoginResponses, ParseCdnLogData, ParseCdnLogResponses, PatchFileData, PatchFileResponses, PatchThirdPartyFileData, PatchThirdPartyFileResponses, ProcessWithdrawalData, ProcessWithdrawalErrors, ProcessWithdrawalResponses, RedirectShortUrlData, RedirectShortUrlResponses, RefreshTokenData, RefreshTokenErrors, RefreshTokenResponses, SearchQuestionsData, SearchQuestionsResponses, SignupData, SignupErrors, SignupResponses, SubmitQuizHistoryData, SubmitQuizHistoryResponses, TestProcessorData, TestProcessorResponses, UnassignRolePermissionsData, UnassignRolePermissionsResponses, UnassignUserRolesData, UnassignUserRolesResponses, UpdateKnowledgeBaseData, UpdateKnowledgeBaseResponses, UpdatePermissionData, UpdatePermissionResponses, UpdateQBankData, UpdateQBankResponses, UpdateQBankSkuData, UpdateQBankSkuResponses, UpdateQuestionData, UpdateQuestionResponses, UpdateRoleData, UpdateRoleResponses, UpdateUserData, UpdateUserResponses, UploadFileData, UploadFileResponses, VerifyCaptchaData, VerifyCaptchaErrors, VerifyCaptchaResponses } from './types.gen';
+import type { AdjustBalanceData, AdjustBalanceErrors, AdjustBalanceResponses, AssignPermissionsToRoleData, AssignPermissionsToRoleResponses, AssignRolesToUserData, AssignRolesToUserResponses, BatchOperationQuestionsData, BatchOperationQuestionsResponses, ChatWithKnowledgeBaseData, ChatWithKnowledgeBaseResponses, CreateKnowledgeBaseData, CreateKnowledgeBaseResponses, CreatePermissionData, CreatePermissionResponses, CreateQBankData, CreateQBankResponses, CreateQBankSkuData, CreateQBankSkuResponses, CreateQuestionData, CreateQuestionResponses, CreateRoleData, CreateRoleResponses, CreateShortUrlData, CreateShortUrlResponses, CreateThirdPartyFileUrlData, CreateThirdPartyFileUrlResponses, CreateUserData, CreateUserResponses, CreateWithdrawalData, CreateWithdrawalErrors, CreateWithdrawalResponses, DeleteFileData, DeleteFileResponses, DeleteKnowledgeBaseData, DeleteKnowledgeBaseResponses, DeleteKnowledgeDocumentData, DeleteKnowledgeDocumentResponses, DeletePermissionData, DeletePermissionResponses, DeleteQBankData, DeleteQBankResponses, DeleteQBankSkuData, DeleteQBankSkuResponses, DeleteQuestionData, DeleteQuestionResponses, DeleteRoleData, DeleteRoleResponses, DeleteShortUrlData, DeleteShortUrlResponses, DeleteThirdPartyFileData, DeleteThirdPartyFileResponses, DeleteUserData, DeleteUserResponses, FavoriteQuestionData, FavoriteQuestionResponses, GetCaptchaData, GetCaptchaResponses, GetCaptchaWithIdData, GetCaptchaWithIdResponses, GetCaptchaWithSignData, GetCaptchaWithSignResponses, GetCdnTrafficStatData, GetCdnTrafficStatResponses, GetCdnUsedTrafficData, GetCdnUsedTrafficResponses, GetDevTokenData, GetDevTokenErrors, GetDevTokenResponses, GetFileData, GetFileResponses, GetKnowledgeBaseData, GetKnowledgeBaseResponses, GetPermissionData, GetPermissionResponses, GetPlaceholderImageData, GetPlaceholderImageResponses, GetQBankData, GetQBankResponses, GetQBankSkuData, GetQBankSkuResponses, GetQuestionData, GetQuestionResponses, GetQuizProgressData, GetQuizProgressResponses, GetRoleData, GetRolePermissionsData, GetRolePermissionsResponses, GetRoleResponses, GetThirdPartyUploadParamsData, GetThirdPartyUploadParamsResponses, GetUserData, GetUserPermissionsData, GetUserPermissionsResponses, GetUserProfileData, GetUserProfileResponses, GetUserResponses, GetUserRolesData, GetUserRolesResponses, GetWalletBalanceData, GetWalletBalanceErrors, GetWalletBalanceResponses, ListAllPermissionsData, ListAllPermissionsResponses, ListAllRolesData, ListAllRolesResponses, ListAllWithdrawalsData, ListAllWithdrawalsErrors, ListAllWithdrawalsResponses, ListFilesData, ListFilesResponses, ListKnowledgeBasesData, ListKnowledgeBasesResponses, ListKnowledgeDocumentsData, ListKnowledgeDocumentsResponses, ListPermissionsData, ListPermissionsResponses, ListQBanksData, ListQBankSkusData, ListQBankSkusResponses, ListQBanksResponses, ListQuestionsByQBankData, ListQuestionsByQBankResponses, ListQuestionsData, ListQuestionsResponses, ListRolesData, ListRolesResponses, ListShortUrlsData, ListShortUrlsResponses, ListThirdPartyFilesData, ListThirdPartyFilesResponses, ListUserDomainsData, ListUserDomainsResponses, ListUsersData, ListUsersResponses, ListUserWalletsData, ListUserWalletsErrors, ListUserWalletsResponses, ListUserWithdrawalsData, ListUserWithdrawalsErrors, ListUserWithdrawalsResponses, ListWalletChangesData, ListWalletChangesErrors, ListWalletChangesResponses, LoginData, LoginErrors, LoginResponses, ParseCdnLogData, ParseCdnLogResponses, PatchFileData, PatchFileResponses, PatchThirdPartyFileData, PatchThirdPartyFileResponses, ProcessWithdrawalData, ProcessWithdrawalErrors, ProcessWithdrawalResponses, RedirectShortUrlData, RedirectShortUrlResponses, RefreshTokenData, RefreshTokenErrors, RefreshTokenResponses, SearchQuestionsData, SearchQuestionsResponses, SignupData, SignupErrors, SignupResponses, SubmitQuizProgressData, SubmitQuizProgressResponses, TestProcessorData, TestProcessorResponses, UnassignRolePermissionsData, UnassignRolePermissionsResponses, UnassignUserRolesData, UnassignUserRolesResponses, UnfavoriteQuestionData, UnfavoriteQuestionResponses, UpdateKnowledgeBaseData, UpdateKnowledgeBaseResponses, UpdatePermissionData, UpdatePermissionResponses, UpdateQBankData, UpdateQBankResponses, UpdateQBankSkuData, UpdateQBankSkuResponses, UpdateQuestionData, UpdateQuestionResponses, UpdateRoleData, UpdateRoleResponses, UpdateUserData, UpdateUserResponses, UploadFileData, UploadFileResponses, VerifyCaptchaData, VerifyCaptchaErrors, VerifyCaptchaResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
     /**
@@ -644,9 +644,35 @@ export const searchQuestions = <ThrowOnError extends boolean = false>(options?: 
 });
 
 /**
- * 提交用户答题历史
+ * 取消收藏试题
  */
-export const submitQuizHistory = <ThrowOnError extends boolean = false>(options: Options<SubmitQuizHistoryData, ThrowOnError>) => (options.client ?? client).post<SubmitQuizHistoryResponses, unknown, ThrowOnError>({
+export const unfavoriteQuestion = <ThrowOnError extends boolean = false>(options: Options<UnfavoriteQuestionData, ThrowOnError>) => (options.client ?? client).delete<UnfavoriteQuestionResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/favorite',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * 收藏试题
+ */
+export const favoriteQuestion = <ThrowOnError extends boolean = false>(options: Options<FavoriteQuestionData, ThrowOnError>) => (options.client ?? client).post<FavoriteQuestionResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/favorite',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * 提交用户答题进度
+ */
+export const submitQuizProgress = <ThrowOnError extends boolean = false>(options: Options<SubmitQuizProgressData, ThrowOnError>) => (options.client ?? client).post<SubmitQuizProgressResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: '/quiz/submit',
     ...options,
@@ -657,11 +683,11 @@ export const submitQuizHistory = <ThrowOnError extends boolean = false>(options:
 });
 
 /**
- * 获取用户答题历史
+ * 获取用户答题进度
  */
-export const getQuizHistories = <ThrowOnError extends boolean = false>(options?: Options<GetQuizHistoriesData, ThrowOnError>) => (options?.client ?? client).get<GetQuizHistoriesResponses, unknown, ThrowOnError>({
+export const getQuizProgress = <ThrowOnError extends boolean = false>(options?: Options<GetQuizProgressData, ThrowOnError>) => (options?.client ?? client).get<GetQuizProgressResponses, unknown, ThrowOnError>({
     responseType: 'json',
-    url: '/quiz/histories',
+    url: '/quiz/progress',
     ...options
 });
 

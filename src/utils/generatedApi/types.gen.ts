@@ -140,7 +140,7 @@ export type VerifyCaptchaErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -159,7 +159,7 @@ export type VerifyCaptchaResponses = {
          * 响应消息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -210,7 +210,7 @@ export type SignupErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -240,17 +240,9 @@ export type SignupResponses = {
                  */
                 username: string;
                 /**
-                 * 创建时间
-                 */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
-                /**
                  * 昵称
                  */
-                nickname: string | unknown;
+                nickname: string | null;
                 /**
                  * 状态
                  */
@@ -258,19 +250,24 @@ export type SignupResponses = {
                 /**
                  * 手机号
                  */
-                mobile: string | unknown;
+                mobile: string | null;
                 /**
                  * 邮箱
                  */
-                email: string | unknown;
+                email: string | null;
                 /**
                  * 头像
                  */
-                avatar: string | unknown;
+                avatar: string | null;
                 /**
                  * 邀请人ID
                  */
-                invitorId: number | unknown;
+                invitorId: number | null;
+                /**
+                 * 创建时间
+                 */
+                createdAt: string;
+                updatedAt: string | null;
             };
             /**
              * 访问令牌
@@ -331,7 +328,7 @@ export type LoginErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -361,17 +358,9 @@ export type LoginResponses = {
                  */
                 username: string;
                 /**
-                 * 创建时间
-                 */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
-                /**
                  * 昵称
                  */
-                nickname: string | unknown;
+                nickname: string | null;
                 /**
                  * 状态
                  */
@@ -379,19 +368,24 @@ export type LoginResponses = {
                 /**
                  * 手机号
                  */
-                mobile: string | unknown;
+                mobile: string | null;
                 /**
                  * 邮箱
                  */
-                email: string | unknown;
+                email: string | null;
                 /**
                  * 头像
                  */
-                avatar: string | unknown;
+                avatar: string | null;
                 /**
                  * 邀请人ID
                  */
-                invitorId: number | unknown;
+                invitorId: number | null;
+                /**
+                 * 创建时间
+                 */
+                createdAt: string;
+                updatedAt: string | null;
             };
             /**
              * 访问令牌
@@ -433,7 +427,7 @@ export type RefreshTokenErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -492,7 +486,7 @@ export type GetDevTokenErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -599,11 +593,8 @@ export type ListPermissionsResponses = {
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
         };
     };
@@ -656,11 +647,8 @@ export type CreatePermissionResponses = {
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -703,11 +691,8 @@ export type ListAllPermissionsResponses = {
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         }>;
     };
 };
@@ -788,11 +773,8 @@ export type GetPermissionResponses = {
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -849,11 +831,8 @@ export type UpdatePermissionResponses = {
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -934,12 +913,12 @@ export type ListRolesResponses = {
                  * 角色代码
                  */
                 code: string;
-                desc: string | unknown;
+                desc: string | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
         };
     };
@@ -993,12 +972,12 @@ export type CreateRoleResponses = {
              * 角色代码
              */
             code: string;
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -1043,12 +1022,12 @@ export type ListAllRolesResponses = {
              * 角色代码
              */
             code: string;
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         }>;
     };
 };
@@ -1126,12 +1105,12 @@ export type GetRoleResponses = {
              * 角色代码
              */
             code: string;
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -1189,12 +1168,12 @@ export type UpdateRoleResponses = {
              * 角色代码
              */
             code: string;
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -1275,7 +1254,7 @@ export type AssignPermissionsToRoleResponses = {
          * 响应消息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -1306,7 +1285,7 @@ export type UnassignRolePermissionsResponses = {
          * 响应消息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -1390,20 +1369,20 @@ export type ListUsersResponses = {
                  * 用户名
                  */
                 username: string;
-                nickname: string | unknown;
-                mobile: string | unknown;
-                email: string | unknown;
-                avatar: string | unknown;
+                nickname: string | null;
+                mobile: string | null;
+                email: string | null;
+                avatar: string | null;
                 /**
                  * 状态：0正常 1封禁
                  */
                 status: number;
-                invitorId: number | unknown;
+                invitorId: number | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
                 roles?: Array<{
                     /**
                      * 角色ID
@@ -1417,29 +1396,29 @@ export type ListUsersResponses = {
                      * 角色代码
                      */
                     code: string;
-                    desc: string | unknown;
+                    desc: string | null;
                     /**
                      * 创建时间
                      */
-                    createdAt: unknown;
-                    updatedAt: unknown;
+                    createdAt: string;
+                    updatedAt: string | null;
                 }>;
-                profile?: unknown | {
+                profile?: {
                     /**
                      * 用户ID
                      */
                     userId: number;
-                    realName: string | unknown;
-                    bio: string | unknown;
-                    birthday: unknown;
-                    gender: number | unknown;
-                    idCardNum: string | unknown;
+                    realName: string | null;
+                    bio: string | null;
+                    birthday: unknown | null;
+                    gender: number | null;
+                    idCardNum: string | null;
                     /**
                      * 创建时间
                      */
-                    createdAt: unknown;
-                    updatedAt: unknown;
-                };
+                    createdAt: string;
+                    updatedAt: string | null;
+                } | null;
             }>;
         };
     };
@@ -1505,20 +1484,20 @@ export type CreateUserResponses = {
              * 用户名
              */
             username: string;
-            nickname: string | unknown;
-            mobile: string | unknown;
-            email: string | unknown;
-            avatar: string | unknown;
+            nickname: string | null;
+            mobile: string | null;
+            email: string | null;
+            avatar: string | null;
             /**
              * 状态：0正常 1封禁
              */
             status: number;
-            invitorId: number | unknown;
+            invitorId: number | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
             roles?: Array<{
                 /**
                  * 角色ID
@@ -1532,29 +1511,29 @@ export type CreateUserResponses = {
                  * 角色代码
                  */
                 code: string;
-                desc: string | unknown;
+                desc: string | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
-            profile?: unknown | {
+            profile?: {
                 /**
                  * 用户ID
                  */
                 userId: number;
-                realName: string | unknown;
-                bio: string | unknown;
-                birthday: unknown;
-                gender: number | unknown;
-                idCardNum: string | unknown;
+                realName: string | null;
+                bio: string | null;
+                birthday: unknown | null;
+                gender: number | null;
+                idCardNum: string | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                updatedAt: unknown;
-            };
+                createdAt: string;
+                updatedAt: string | null;
+            } | null;
         };
     };
 };
@@ -1640,20 +1619,20 @@ export type GetUserResponses = {
              * 用户名
              */
             username: string;
-            nickname: string | unknown;
-            mobile: string | unknown;
-            email: string | unknown;
-            avatar: string | unknown;
+            nickname: string | null;
+            mobile: string | null;
+            email: string | null;
+            avatar: string | null;
             /**
              * 状态：0正常 1封禁
              */
             status: number;
-            invitorId: number | unknown;
+            invitorId: number | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
             roles?: Array<{
                 /**
                  * 角色ID
@@ -1667,29 +1646,29 @@ export type GetUserResponses = {
                  * 角色代码
                  */
                 code: string;
-                desc: string | unknown;
+                desc: string | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
-            profile?: unknown | {
+            profile?: {
                 /**
                  * 用户ID
                  */
                 userId: number;
-                realName: string | unknown;
-                bio: string | unknown;
-                birthday: unknown;
-                gender: number | unknown;
-                idCardNum: string | unknown;
+                realName: string | null;
+                bio: string | null;
+                birthday: unknown | null;
+                gender: number | null;
+                idCardNum: string | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                updatedAt: unknown;
-            };
+                createdAt: string;
+                updatedAt: string | null;
+            } | null;
         };
     };
 };
@@ -1777,20 +1756,20 @@ export type UpdateUserResponses = {
              * 用户名
              */
             username: string;
-            nickname: string | unknown;
-            mobile: string | unknown;
-            email: string | unknown;
-            avatar: string | unknown;
+            nickname: string | null;
+            mobile: string | null;
+            email: string | null;
+            avatar: string | null;
             /**
              * 状态：0正常 1封禁
              */
             status: number;
-            invitorId: number | unknown;
+            invitorId: number | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
             roles?: Array<{
                 /**
                  * 角色ID
@@ -1804,29 +1783,29 @@ export type UpdateUserResponses = {
                  * 角色代码
                  */
                 code: string;
-                desc: string | unknown;
+                desc: string | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
-            profile?: unknown | {
+            profile?: {
                 /**
                  * 用户ID
                  */
                 userId: number;
-                realName: string | unknown;
-                bio: string | unknown;
-                birthday: unknown;
-                gender: number | unknown;
-                idCardNum: string | unknown;
+                realName: string | null;
+                bio: string | null;
+                birthday: unknown | null;
+                gender: number | null;
+                idCardNum: string | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                updatedAt: unknown;
-            };
+                createdAt: string;
+                updatedAt: string | null;
+            } | null;
         };
     };
 };
@@ -1871,12 +1850,12 @@ export type GetUserRolesResponses = {
              * 角色代码
              */
             code: string;
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         }>;
     };
 };
@@ -1908,22 +1887,22 @@ export type GetUserProfileResponses = {
          * 响应消息
          */
         msg: string;
-        data: unknown | {
+        data: {
             /**
              * 用户ID
              */
             userId: number;
-            realName: string | unknown;
-            bio: string | unknown;
-            birthday: unknown;
-            gender: number | unknown;
-            idCardNum: string | unknown;
+            realName: string | null;
+            bio: string | null;
+            birthday: unknown | null;
+            gender: number | null;
+            idCardNum: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
-        };
+            createdAt: string;
+            updatedAt: string | null;
+        } | null;
     };
 };
 
@@ -1970,8 +1949,8 @@ export type GetUserPermissionsResponses = {
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         }>;
     };
 };
@@ -2008,7 +1987,7 @@ export type AssignRolesToUserResponses = {
          * 响应消息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -2044,7 +2023,7 @@ export type UnassignUserRolesResponses = {
          * 响应消息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -2123,19 +2102,16 @@ export type ListKnowledgeBasesResponses = {
                 /**
                  * 知识库描述
                  */
-                desc: string | unknown;
+                desc: string | null;
                 /**
                  * 知识库封面URL
                  */
-                cover: string | unknown;
+                cover: string | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
         };
     };
@@ -2188,19 +2164,16 @@ export type CreateKnowledgeBaseResponses = {
             /**
              * 知识库描述
              */
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 知识库封面URL
              */
-            cover: string | unknown;
+            cover: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -2277,19 +2250,16 @@ export type GetKnowledgeBaseResponses = {
             /**
              * 知识库描述
              */
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 知识库封面URL
              */
-            cover: string | unknown;
+            cover: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -2346,19 +2316,16 @@ export type UpdateKnowledgeBaseResponses = {
             /**
              * 知识库描述
              */
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 知识库封面URL
              */
-            cover: string | unknown;
+            cover: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -2448,11 +2415,8 @@ export type ListKnowledgeDocumentsResponses = {
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
         };
     };
@@ -2542,7 +2506,13 @@ export type GetCdnTrafficStatData = {
     path?: never;
     query?: {
         domain?: string;
+        /**
+         * 开始时间戳(毫秒)
+         */
         startAt?: number;
+        /**
+         * 结束时间戳(毫秒)
+         */
         endAt?: number;
         timeUnit?: 'hour' | 'day' | 'month';
     };
@@ -2671,22 +2641,14 @@ export type ListQBanksResponses = {
                  * 题库名称
                  */
                 name: string;
-                subTitle: unknown | string;
-                desc: unknown | string;
-                content: unknown | string;
-                cover: unknown | string;
+                subTitle: string | null;
+                desc: string | null;
+                content: string | null;
+                cover: string | null;
                 /**
                  * 试题数量
                  */
                 questionCount: number;
-                /**
-                 * 创建时间
-                 */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
                 skus?: Array<{
                     /**
                      * SKU ID
@@ -2700,7 +2662,7 @@ export type ListQBanksResponses = {
                      * SKU名称
                      */
                     name: string;
-                    desc: unknown | string;
+                    desc: string | null;
                     /**
                      * 价格
                      */
@@ -2713,17 +2675,19 @@ export type ListQBanksResponses = {
                      * 有效期类型
                      */
                     validType: 'Day' | 'Fixed' | 'Permanent';
-                    validDay: unknown | number;
-                    validDate: unknown;
+                    validDay: number | null;
+                    validDate: unknown | null;
                     /**
                      * 创建时间
                      */
-                    createdAt: unknown;
-                    /**
-                     * 更新时间
-                     */
-                    updatedAt: unknown;
+                    createdAt: string;
+                    updatedAt: string | null;
                 }>;
+                /**
+                 * 创建时间
+                 */
+                createdAt: string;
+                updatedAt: string | null;
             }>;
         };
     };
@@ -2811,22 +2775,14 @@ export type CreateQBankResponses = {
              * 题库名称
              */
             name: string;
-            subTitle: unknown | string;
-            desc: unknown | string;
-            content: unknown | string;
-            cover: unknown | string;
+            subTitle: string | null;
+            desc: string | null;
+            content: string | null;
+            cover: string | null;
             /**
              * 试题数量
              */
             questionCount: number;
-            /**
-             * 创建时间
-             */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
             skus?: Array<{
                 /**
                  * SKU ID
@@ -2840,7 +2796,7 @@ export type CreateQBankResponses = {
                  * SKU名称
                  */
                 name: string;
-                desc: unknown | string;
+                desc: string | null;
                 /**
                  * 价格
                  */
@@ -2853,17 +2809,19 @@ export type CreateQBankResponses = {
                  * 有效期类型
                  */
                 validType: 'Day' | 'Fixed' | 'Permanent';
-                validDay: unknown | number;
-                validDate: unknown;
+                validDay: number | null;
+                validDate: unknown | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -2940,22 +2898,14 @@ export type GetQBankResponses = {
              * 题库名称
              */
             name: string;
-            subTitle: unknown | string;
-            desc: unknown | string;
-            content: unknown | string;
-            cover: unknown | string;
+            subTitle: string | null;
+            desc: string | null;
+            content: string | null;
+            cover: string | null;
             /**
              * 试题数量
              */
             questionCount: number;
-            /**
-             * 创建时间
-             */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
             skus?: Array<{
                 /**
                  * SKU ID
@@ -2969,7 +2919,7 @@ export type GetQBankResponses = {
                  * SKU名称
                  */
                 name: string;
-                desc: unknown | string;
+                desc: string | null;
                 /**
                  * 价格
                  */
@@ -2982,17 +2932,19 @@ export type GetQBankResponses = {
                  * 有效期类型
                  */
                 validType: 'Day' | 'Fixed' | 'Permanent';
-                validDay: unknown | number;
-                validDate: unknown;
+                validDay: number | null;
+                validDate: unknown | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -3084,22 +3036,14 @@ export type UpdateQBankResponses = {
              * 题库名称
              */
             name: string;
-            subTitle: unknown | string;
-            desc: unknown | string;
-            content: unknown | string;
-            cover: unknown | string;
+            subTitle: string | null;
+            desc: string | null;
+            content: string | null;
+            cover: string | null;
             /**
              * 试题数量
              */
             questionCount: number;
-            /**
-             * 创建时间
-             */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
             skus?: Array<{
                 /**
                  * SKU ID
@@ -3113,7 +3057,7 @@ export type UpdateQBankResponses = {
                  * SKU名称
                  */
                 name: string;
-                desc: unknown | string;
+                desc: string | null;
                 /**
                  * 价格
                  */
@@ -3126,17 +3070,19 @@ export type UpdateQBankResponses = {
                  * 有效期类型
                  */
                 validType: 'Day' | 'Fixed' | 'Permanent';
-                validDay: unknown | number;
-                validDate: unknown;
+                validDay: number | null;
+                validDate: unknown | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -3222,7 +3168,7 @@ export type ListQBankSkusResponses = {
                  * SKU名称
                  */
                 name: string;
-                desc: unknown | string;
+                desc: string | null;
                 /**
                  * 价格
                  */
@@ -3235,16 +3181,13 @@ export type ListQBankSkusResponses = {
                  * 有效期类型
                  */
                 validType: 'Day' | 'Fixed' | 'Permanent';
-                validDay: unknown | number;
-                validDate: unknown;
+                validDay: number | null;
+                validDate: unknown | null;
                 /**
                  * 创建时间
                  */
-                createdAt: unknown;
-                /**
-                 * 更新时间
-                 */
-                updatedAt: unknown;
+                createdAt: string;
+                updatedAt: string | null;
             }>;
         };
     };
@@ -3323,7 +3266,7 @@ export type CreateQBankSkuResponses = {
              * SKU名称
              */
             name: string;
-            desc: unknown | string;
+            desc: string | null;
             /**
              * 价格
              */
@@ -3336,16 +3279,13 @@ export type CreateQBankSkuResponses = {
              * 有效期类型
              */
             validType: 'Day' | 'Fixed' | 'Permanent';
-            validDay: unknown | number;
-            validDate: unknown;
+            validDay: number | null;
+            validDate: unknown | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -3435,7 +3375,7 @@ export type GetQBankSkuResponses = {
              * SKU名称
              */
             name: string;
-            desc: unknown | string;
+            desc: string | null;
             /**
              * 价格
              */
@@ -3448,16 +3388,13 @@ export type GetQBankSkuResponses = {
              * 有效期类型
              */
             validType: 'Day' | 'Fixed' | 'Permanent';
-            validDay: unknown | number;
-            validDate: unknown;
+            validDay: number | null;
+            validDate: unknown | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -3537,7 +3474,7 @@ export type UpdateQBankSkuResponses = {
              * SKU名称
              */
             name: string;
-            desc: unknown | string;
+            desc: string | null;
             /**
              * 价格
              */
@@ -3550,16 +3487,13 @@ export type UpdateQBankSkuResponses = {
              * 有效期类型
              */
             validType: 'Day' | 'Fixed' | 'Permanent';
-            validDay: unknown | number;
-            validDate: unknown;
+            validDay: number | null;
+            validDate: unknown | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -3590,6 +3524,10 @@ export type ListQuestionsData = {
          * 是否包含统计信息
          */
         withStat?: boolean;
+        /**
+         * 是否包含收藏状态
+         */
+        withFavorited?: boolean;
         /**
          * 页码，从1开始，默认为1
          */
@@ -3652,12 +3590,12 @@ export type ListQuestionsResponses = {
                  * 试题ID
                  */
                 id: number;
-                qBankId: unknown | number;
+                qBankId: number | null;
                 /**
                  * 试题类型
                  */
                 type: number;
-                body?: unknown | {
+                body?: null | {
                     /**
                      * 试题ID
                      */
@@ -3666,22 +3604,22 @@ export type ListQuestionsResponses = {
                      * 题干
                      */
                     stem: string;
-                    answer: unknown;
-                    options: unknown;
-                    analysis: unknown | string;
-                    txtVec: unknown;
-                    /**
-                     * 创建时间
-                     */
-                    createdAt: unknown;
-                    updatedAt: unknown;
+                    answer: unknown | null;
+                    options: unknown | null;
+                    analysis: string | null;
+                    txtVec: unknown | null;
                     /**
                      * 创建用户ID
                      */
                     createdBy: number;
-                    updatedBy: unknown | number;
+                    updatedBy: number | null;
+                    /**
+                     * 创建时间
+                     */
+                    createdAt: string;
+                    updatedAt: string | null;
                 };
-                stat?: unknown | {
+                stat?: null | {
                     /**
                      * 总答题次数
                      */
@@ -3699,6 +3637,10 @@ export type ListQuestionsResponses = {
                      */
                     userCount: number;
                 };
+                /**
+                 * 是否已收藏（仅当请求参数withFavorited=true时返回）
+                 */
+                isFavorited?: boolean;
             }>;
         };
     };
@@ -3758,12 +3700,12 @@ export type CreateQuestionResponses = {
              * 试题ID
              */
             id: number;
-            qBankId: unknown | number;
+            qBankId: number | null;
             /**
              * 试题类型
              */
             type: number;
-            body?: unknown | {
+            body?: null | {
                 /**
                  * 试题ID
                  */
@@ -3772,22 +3714,22 @@ export type CreateQuestionResponses = {
                  * 题干
                  */
                 stem: string;
-                answer: unknown;
-                options: unknown;
-                analysis: unknown | string;
-                txtVec: unknown;
-                /**
-                 * 创建时间
-                 */
-                createdAt: unknown;
-                updatedAt: unknown;
+                answer: unknown | null;
+                options: unknown | null;
+                analysis: string | null;
+                txtVec: unknown | null;
                 /**
                  * 创建用户ID
                  */
                 createdBy: number;
-                updatedBy: unknown | number;
+                updatedBy: number | null;
+                /**
+                 * 创建时间
+                 */
+                createdAt: string;
+                updatedAt: string | null;
             };
-            stat?: unknown | {
+            stat?: null | {
                 /**
                  * 总答题次数
                  */
@@ -3805,6 +3747,10 @@ export type CreateQuestionResponses = {
                  */
                 userCount: number;
             };
+            /**
+             * 是否已收藏（仅当请求参数withFavorited=true时返回）
+             */
+            isFavorited?: boolean;
         };
     };
 };
@@ -3877,12 +3823,12 @@ export type GetQuestionResponses = {
              * 试题ID
              */
             id: number;
-            qBankId: unknown | number;
+            qBankId: number | null;
             /**
              * 试题类型
              */
             type: number;
-            body?: unknown | {
+            body?: null | {
                 /**
                  * 试题ID
                  */
@@ -3891,22 +3837,22 @@ export type GetQuestionResponses = {
                  * 题干
                  */
                 stem: string;
-                answer: unknown;
-                options: unknown;
-                analysis: unknown | string;
-                txtVec: unknown;
-                /**
-                 * 创建时间
-                 */
-                createdAt: unknown;
-                updatedAt: unknown;
+                answer: unknown | null;
+                options: unknown | null;
+                analysis: string | null;
+                txtVec: unknown | null;
                 /**
                  * 创建用户ID
                  */
                 createdBy: number;
-                updatedBy: unknown | number;
+                updatedBy: number | null;
+                /**
+                 * 创建时间
+                 */
+                createdAt: string;
+                updatedAt: string | null;
             };
-            stat?: unknown | {
+            stat?: null | {
                 /**
                  * 总答题次数
                  */
@@ -3924,6 +3870,10 @@ export type GetQuestionResponses = {
                  */
                 userCount: number;
             };
+            /**
+             * 是否已收藏（仅当请求参数withFavorited=true时返回）
+             */
+            isFavorited?: boolean;
         };
     };
 };
@@ -3987,12 +3937,12 @@ export type UpdateQuestionResponses = {
              * 试题ID
              */
             id: number;
-            qBankId: unknown | number;
+            qBankId: number | null;
             /**
              * 试题类型
              */
             type: number;
-            body?: unknown | {
+            body?: null | {
                 /**
                  * 试题ID
                  */
@@ -4001,22 +3951,22 @@ export type UpdateQuestionResponses = {
                  * 题干
                  */
                 stem: string;
-                answer: unknown;
-                options: unknown;
-                analysis: unknown | string;
-                txtVec: unknown;
-                /**
-                 * 创建时间
-                 */
-                createdAt: unknown;
-                updatedAt: unknown;
+                answer: unknown | null;
+                options: unknown | null;
+                analysis: string | null;
+                txtVec: unknown | null;
                 /**
                  * 创建用户ID
                  */
                 createdBy: number;
-                updatedBy: unknown | number;
+                updatedBy: number | null;
+                /**
+                 * 创建时间
+                 */
+                createdAt: string;
+                updatedAt: string | null;
             };
-            stat?: unknown | {
+            stat?: null | {
                 /**
                  * 总答题次数
                  */
@@ -4034,6 +3984,10 @@ export type UpdateQuestionResponses = {
                  */
                 userCount: number;
             };
+            /**
+             * 是否已收藏（仅当请求参数withFavorited=true时返回）
+             */
+            isFavorited?: boolean;
         };
     };
 };
@@ -4122,6 +4076,10 @@ export type ListQuestionsByQBankData = {
          */
         withStat?: boolean;
         /**
+         * 是否包含收藏状态
+         */
+        withFavorited?: boolean;
+        /**
          * 页码，从1开始，默认为1
          */
         page?: number;
@@ -4183,12 +4141,12 @@ export type ListQuestionsByQBankResponses = {
                  * 试题ID
                  */
                 id: number;
-                qBankId: unknown | number;
+                qBankId: number | null;
                 /**
                  * 试题类型
                  */
                 type: number;
-                body?: unknown | {
+                body?: null | {
                     /**
                      * 试题ID
                      */
@@ -4197,22 +4155,22 @@ export type ListQuestionsByQBankResponses = {
                      * 题干
                      */
                     stem: string;
-                    answer: unknown;
-                    options: unknown;
-                    analysis: unknown | string;
-                    txtVec: unknown;
-                    /**
-                     * 创建时间
-                     */
-                    createdAt: unknown;
-                    updatedAt: unknown;
+                    answer: unknown | null;
+                    options: unknown | null;
+                    analysis: string | null;
+                    txtVec: unknown | null;
                     /**
                      * 创建用户ID
                      */
                     createdBy: number;
-                    updatedBy: unknown | number;
+                    updatedBy: number | null;
+                    /**
+                     * 创建时间
+                     */
+                    createdAt: string;
+                    updatedAt: string | null;
                 };
-                stat?: unknown | {
+                stat?: null | {
                     /**
                      * 总答题次数
                      */
@@ -4230,6 +4188,10 @@ export type ListQuestionsByQBankResponses = {
                      */
                     userCount: number;
                 };
+                /**
+                 * 是否已收藏（仅当请求参数withFavorited=true时返回）
+                 */
+                isFavorited?: boolean;
             }>;
         };
     };
@@ -4261,6 +4223,10 @@ export type SearchQuestionsData = {
          * 是否包含统计信息
          */
         withStat?: boolean;
+        /**
+         * 是否包含收藏状态
+         */
+        withFavorited?: boolean;
         /**
          * 页码，从1开始，默认为1
          */
@@ -4323,12 +4289,12 @@ export type SearchQuestionsResponses = {
                  * 试题ID
                  */
                 id: number;
-                qBankId: unknown | number;
+                qBankId: number | null;
                 /**
                  * 试题类型
                  */
                 type: number;
-                body?: unknown | {
+                body?: null | {
                     /**
                      * 试题ID
                      */
@@ -4337,22 +4303,22 @@ export type SearchQuestionsResponses = {
                      * 题干
                      */
                     stem: string;
-                    answer: unknown;
-                    options: unknown;
-                    analysis: unknown | string;
-                    txtVec: unknown;
-                    /**
-                     * 创建时间
-                     */
-                    createdAt: unknown;
-                    updatedAt: unknown;
+                    answer: unknown | null;
+                    options: unknown | null;
+                    analysis: string | null;
+                    txtVec: unknown | null;
                     /**
                      * 创建用户ID
                      */
                     createdBy: number;
-                    updatedBy: unknown | number;
+                    updatedBy: number | null;
+                    /**
+                     * 创建时间
+                     */
+                    createdAt: string;
+                    updatedAt: string | null;
                 };
-                stat?: unknown | {
+                stat?: null | {
                     /**
                      * 总答题次数
                      */
@@ -4370,6 +4336,10 @@ export type SearchQuestionsResponses = {
                      */
                     userCount: number;
                 };
+                /**
+                 * 是否已收藏（仅当请求参数withFavorited=true时返回）
+                 */
+                isFavorited?: boolean;
             }>;
         };
     };
@@ -4377,7 +4347,98 @@ export type SearchQuestionsResponses = {
 
 export type SearchQuestionsResponse = SearchQuestionsResponses[keyof SearchQuestionsResponses];
 
-export type SubmitQuizHistoryData = {
+export type UnfavoriteQuestionData = {
+    body: {
+        /**
+         * 试题ID
+         */
+        questionId: number;
+        /**
+         * 题库ID
+         */
+        qBankId: number;
+    };
+    path?: never;
+    query?: never;
+    url: '/question/favorite';
+};
+
+export type UnfavoriteQuestionResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: null;
+    };
+};
+
+export type UnfavoriteQuestionResponse = UnfavoriteQuestionResponses[keyof UnfavoriteQuestionResponses];
+
+export type FavoriteQuestionData = {
+    body: {
+        /**
+         * 试题ID
+         */
+        questionId: number;
+        /**
+         * 题库ID
+         */
+        qBankId: number;
+    };
+    path?: never;
+    query?: never;
+    url: '/question/favorite';
+};
+
+export type FavoriteQuestionResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 收藏记录ID
+             */
+            id: number;
+            /**
+             * 用户ID
+             */
+            userId: number;
+            /**
+             * 题库ID
+             */
+            qBankId: number;
+            /**
+             * 试题ID
+             */
+            questionId: number;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+        };
+    };
+};
+
+export type FavoriteQuestionResponse = FavoriteQuestionResponses[keyof FavoriteQuestionResponses];
+
+export type SubmitQuizProgressData = {
     body: {
         /**
          * 题库ID
@@ -4406,7 +4467,7 @@ export type SubmitQuizHistoryData = {
     url: '/quiz/submit';
 };
 
-export type SubmitQuizHistoryResponses = {
+export type SubmitQuizProgressResponses = {
     /**
      * Default Response
      */
@@ -4419,13 +4480,13 @@ export type SubmitQuizHistoryResponses = {
          * 响应消息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
-export type SubmitQuizHistoryResponse = SubmitQuizHistoryResponses[keyof SubmitQuizHistoryResponses];
+export type SubmitQuizProgressResponse = SubmitQuizProgressResponses[keyof SubmitQuizProgressResponses];
 
-export type GetQuizHistoriesData = {
+export type GetQuizProgressData = {
     body?: never;
     path?: never;
     query?: {
@@ -4454,10 +4515,10 @@ export type GetQuizHistoriesData = {
          */
         sort?: string;
     };
-    url: '/quiz/histories';
+    url: '/quiz/progress';
 };
 
-export type GetQuizHistoriesResponses = {
+export type GetQuizProgressResponses = {
     /**
      * Default Response
      */
@@ -4492,14 +4553,9 @@ export type GetQuizHistoriesResponses = {
              */
             list: Array<{
                 /**
-                 * 历史记录ID
+                 * 进度记录ID
                  */
                 id: number;
-                /**
-                 * 创建时间
-                 */
-                createdAt: unknown;
-                updatedAt: unknown;
                 qBank: {
                     /**
                      * 题库ID
@@ -4513,13 +4569,18 @@ export type GetQuizHistoriesResponses = {
                      * 试题数量
                      */
                     questionCount: number;
-                } | unknown;
+                } | null;
+                /**
+                 * 创建时间
+                 */
+                createdAt: string;
+                updatedAt: string | null;
             }>;
         };
     };
 };
 
-export type GetQuizHistoriesResponse = GetQuizHistoriesResponses[keyof GetQuizHistoriesResponses];
+export type GetQuizProgressResponse = GetQuizProgressResponses[keyof GetQuizProgressResponses];
 
 export type CreateShortUrlData = {
     body: {
@@ -4765,11 +4826,11 @@ export type ListThirdPartyFilesData = {
          */
         name?: string;
         /**
-         * 开始时间
+         * 开始时间(毫秒级时间戳)
          */
         startTime?: number;
         /**
-         * 结束时间
+         * 结束时间(毫秒级时间戳)
          */
         endTime?: number;
         /**
@@ -4902,7 +4963,7 @@ export type GetWalletBalanceErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -4945,11 +5006,8 @@ export type GetWalletBalanceResponses = {
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         };
     };
 };
@@ -4976,7 +5034,7 @@ export type ListUserWalletsErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -5019,11 +5077,8 @@ export type ListUserWalletsResponses = {
             /**
              * 创建时间
              */
-            createdAt: unknown;
-            /**
-             * 更新时间
-             */
-            updatedAt: unknown;
+            createdAt: string;
+            updatedAt: string | null;
         }>;
     };
 };
@@ -5055,7 +5110,7 @@ export type ListWalletChangesErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -5110,19 +5165,19 @@ export type ListWalletChangesResponses = {
             /**
              * 关联业务单号，如订单号、提现ID等
              */
-            refBizId: string | unknown;
+            refBizId: string | null;
             /**
              * 变动说明，用户可见
              */
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 管理员备注，内部使用
              */
-            remark: string | unknown;
+            remark: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
+            createdAt: string;
         }>;
     };
 };
@@ -5149,7 +5204,7 @@ export type ListUserWithdrawalsErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -5180,7 +5235,7 @@ export type ListUserWithdrawalsResponses = {
             /**
              * 处理人ID，管理员或审核人员
              */
-            processorId: number | unknown;
+            processorId: number | null;
             /**
              * 提现状态：1已申请 2审核通过 3审核拒绝 4已打款 5打款失败
              */
@@ -5196,15 +5251,15 @@ export type ListUserWithdrawalsResponses = {
             /**
              * 用户申请时的备注说明
              */
-            userRemark: string | unknown;
+            userRemark: string | null;
             /**
              * 管理员审核时的备注说明
              */
-            adminRemark: string | unknown;
+            adminRemark: string | null;
             /**
              * 拒绝原因，仅在审核拒绝时填写
              */
-            rejectMsg: string | unknown;
+            rejectMsg: string | null;
             /**
              * 申请时间
              */
@@ -5212,11 +5267,11 @@ export type ListUserWithdrawalsResponses = {
             /**
              * 审核时间
              */
-            reviewedAt: unknown;
+            reviewedAt: unknown | null;
             /**
              * 打款时间
              */
-            paidAt: unknown;
+            paidAt: unknown | null;
         }>;
     };
 };
@@ -5256,7 +5311,7 @@ export type CreateWithdrawalErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -5287,7 +5342,7 @@ export type CreateWithdrawalResponses = {
             /**
              * 处理人ID，管理员或审核人员
              */
-            processorId: number | unknown;
+            processorId: number | null;
             /**
              * 提现状态：1已申请 2审核通过 3审核拒绝 4已打款 5打款失败
              */
@@ -5303,15 +5358,15 @@ export type CreateWithdrawalResponses = {
             /**
              * 用户申请时的备注说明
              */
-            userRemark: string | unknown;
+            userRemark: string | null;
             /**
              * 管理员审核时的备注说明
              */
-            adminRemark: string | unknown;
+            adminRemark: string | null;
             /**
              * 拒绝原因，仅在审核拒绝时填写
              */
-            rejectMsg: string | unknown;
+            rejectMsg: string | null;
             /**
              * 申请时间
              */
@@ -5319,11 +5374,11 @@ export type CreateWithdrawalResponses = {
             /**
              * 审核时间
              */
-            reviewedAt: unknown;
+            reviewedAt: unknown | null;
             /**
              * 打款时间
              */
-            paidAt: unknown;
+            paidAt: unknown | null;
         };
     };
 };
@@ -5350,7 +5405,7 @@ export type ListAllWithdrawalsErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -5381,7 +5436,7 @@ export type ListAllWithdrawalsResponses = {
             /**
              * 处理人ID，管理员或审核人员
              */
-            processorId: number | unknown;
+            processorId: number | null;
             /**
              * 提现状态：1已申请 2审核通过 3审核拒绝 4已打款 5打款失败
              */
@@ -5397,15 +5452,15 @@ export type ListAllWithdrawalsResponses = {
             /**
              * 用户申请时的备注说明
              */
-            userRemark: string | unknown;
+            userRemark: string | null;
             /**
              * 管理员审核时的备注说明
              */
-            adminRemark: string | unknown;
+            adminRemark: string | null;
             /**
              * 拒绝原因，仅在审核拒绝时填写
              */
-            rejectMsg: string | unknown;
+            rejectMsg: string | null;
             /**
              * 申请时间
              */
@@ -5413,11 +5468,11 @@ export type ListAllWithdrawalsResponses = {
             /**
              * 审核时间
              */
-            reviewedAt: unknown;
+            reviewedAt: unknown | null;
             /**
              * 打款时间
              */
-            paidAt: unknown;
+            paidAt: unknown | null;
         }>;
     };
 };
@@ -5461,7 +5516,7 @@ export type ProcessWithdrawalErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -5492,7 +5547,7 @@ export type ProcessWithdrawalResponses = {
             /**
              * 处理人ID，管理员或审核人员
              */
-            processorId: number | unknown;
+            processorId: number | null;
             /**
              * 提现状态：1已申请 2审核通过 3审核拒绝 4已打款 5打款失败
              */
@@ -5508,15 +5563,15 @@ export type ProcessWithdrawalResponses = {
             /**
              * 用户申请时的备注说明
              */
-            userRemark: string | unknown;
+            userRemark: string | null;
             /**
              * 管理员审核时的备注说明
              */
-            adminRemark: string | unknown;
+            adminRemark: string | null;
             /**
              * 拒绝原因，仅在审核拒绝时填写
              */
-            rejectMsg: string | unknown;
+            rejectMsg: string | null;
             /**
              * 申请时间
              */
@@ -5524,11 +5579,11 @@ export type ProcessWithdrawalResponses = {
             /**
              * 审核时间
              */
-            reviewedAt: unknown;
+            reviewedAt: unknown | null;
             /**
              * 打款时间
              */
-            paidAt: unknown;
+            paidAt: unknown | null;
         };
     };
 };
@@ -5576,7 +5631,7 @@ export type AdjustBalanceErrors = {
          * 错误提示信息
          */
         msg: string;
-        data: unknown;
+        data: null;
     };
 };
 
@@ -5631,19 +5686,19 @@ export type AdjustBalanceResponses = {
             /**
              * 关联业务单号，如订单号、提现ID等
              */
-            refBizId: string | unknown;
+            refBizId: string | null;
             /**
              * 变动说明，用户可见
              */
-            desc: string | unknown;
+            desc: string | null;
             /**
              * 管理员备注，内部使用
              */
-            remark: string | unknown;
+            remark: string | null;
             /**
              * 创建时间
              */
-            createdAt: unknown;
+            createdAt: string;
         };
     };
 };
