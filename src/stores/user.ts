@@ -52,6 +52,11 @@ export const useUserStore = defineStore('user', () => {
     return !!token.value
   }
 
+  // 退出登录
+  function logout() {
+    clearUserInfo()
+  }
+
   return {
     userInfo,
     token,
@@ -59,5 +64,6 @@ export const useUserStore = defineStore('user', () => {
     setUserInfo,
     clearUserInfo,
     isLoggedIn,
+    logout,
   }
 })
