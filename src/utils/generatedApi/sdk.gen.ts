@@ -2,7 +2,7 @@
 
 import type { Client, Options as Options2, TDataShape } from './client';
 import { client } from './client.gen';
-import type { AdjustBalanceData, AdjustBalanceErrors, AdjustBalanceResponses, AssignPermissionsToRoleData, AssignPermissionsToRoleResponses, AssignRolesToUserData, AssignRolesToUserResponses, BatchOperationQuestionsData, BatchOperationQuestionsResponses, ChatWithKnowledgeBaseData, ChatWithKnowledgeBaseResponses, CreateKnowledgeBaseData, CreateKnowledgeBaseResponses, CreatePermissionData, CreatePermissionResponses, CreateQBankData, CreateQBankResponses, CreateQBankSkuData, CreateQBankSkuResponses, CreateQuestionData, CreateQuestionResponses, CreateRoleData, CreateRoleResponses, CreateShortUrlData, CreateShortUrlResponses, CreateThirdPartyFileUrlData, CreateThirdPartyFileUrlResponses, CreateUserData, CreateUserResponses, CreateWithdrawalData, CreateWithdrawalErrors, CreateWithdrawalResponses, DeleteFileData, DeleteFileResponses, DeleteKnowledgeBaseData, DeleteKnowledgeBaseResponses, DeleteKnowledgeDocumentData, DeleteKnowledgeDocumentResponses, DeletePermissionData, DeletePermissionResponses, DeleteQBankData, DeleteQBankResponses, DeleteQBankSkuData, DeleteQBankSkuResponses, DeleteQuestionData, DeleteQuestionResponses, DeleteRoleData, DeleteRoleResponses, DeleteShortUrlData, DeleteShortUrlResponses, DeleteThirdPartyFileData, DeleteThirdPartyFileResponses, DeleteUserData, DeleteUserResponses, FavoriteQuestionData, FavoriteQuestionResponses, GetCaptchaData, GetCaptchaResponses, GetCaptchaWithIdData, GetCaptchaWithIdResponses, GetCaptchaWithSignData, GetCaptchaWithSignResponses, GetCdnTrafficStatData, GetCdnTrafficStatResponses, GetCdnUsedTrafficData, GetCdnUsedTrafficResponses, GetDevTokenData, GetDevTokenErrors, GetDevTokenResponses, GetFileData, GetFileResponses, GetKnowledgeBaseData, GetKnowledgeBaseResponses, GetPermissionData, GetPermissionResponses, GetPlaceholderImageData, GetPlaceholderImageResponses, GetQBankData, GetQBankResponses, GetQBankSkuData, GetQBankSkuResponses, GetQuestionData, GetQuestionResponses, GetQuizProgressData, GetQuizProgressResponses, GetRoleData, GetRolePermissionsData, GetRolePermissionsResponses, GetRoleResponses, GetThirdPartyUploadParamsData, GetThirdPartyUploadParamsResponses, GetUserData, GetUserPermissionsData, GetUserPermissionsResponses, GetUserProfileData, GetUserProfileResponses, GetUserResponses, GetUserRolesData, GetUserRolesResponses, GetWalletBalanceData, GetWalletBalanceErrors, GetWalletBalanceResponses, ListAllPermissionsData, ListAllPermissionsResponses, ListAllRolesData, ListAllRolesResponses, ListAllWithdrawalsData, ListAllWithdrawalsErrors, ListAllWithdrawalsResponses, ListFilesData, ListFilesResponses, ListKnowledgeBasesData, ListKnowledgeBasesResponses, ListKnowledgeDocumentsData, ListKnowledgeDocumentsResponses, ListPermissionsData, ListPermissionsResponses, ListQBanksData, ListQBankSkusData, ListQBankSkusResponses, ListQBanksResponses, ListQuestionsByQBankData, ListQuestionsByQBankResponses, ListQuestionsData, ListQuestionsResponses, ListRolesData, ListRolesResponses, ListShortUrlsData, ListShortUrlsResponses, ListThirdPartyFilesData, ListThirdPartyFilesResponses, ListUserDomainsData, ListUserDomainsResponses, ListUsersData, ListUsersResponses, ListUserWalletsData, ListUserWalletsErrors, ListUserWalletsResponses, ListUserWithdrawalsData, ListUserWithdrawalsErrors, ListUserWithdrawalsResponses, ListWalletChangesData, ListWalletChangesErrors, ListWalletChangesResponses, LoginData, LoginErrors, LoginResponses, ParseCdnLogData, ParseCdnLogResponses, PatchFileData, PatchFileResponses, PatchThirdPartyFileData, PatchThirdPartyFileResponses, ProcessWithdrawalData, ProcessWithdrawalErrors, ProcessWithdrawalResponses, RedirectShortUrlData, RedirectShortUrlResponses, RefreshTokenData, RefreshTokenErrors, RefreshTokenResponses, SearchQuestionsData, SearchQuestionsResponses, SignupData, SignupErrors, SignupResponses, SubmitQuizProgressData, SubmitQuizProgressResponses, TestProcessorData, TestProcessorResponses, UnassignRolePermissionsData, UnassignRolePermissionsResponses, UnassignUserRolesData, UnassignUserRolesResponses, UnfavoriteQuestionData, UnfavoriteQuestionResponses, UpdateKnowledgeBaseData, UpdateKnowledgeBaseResponses, UpdatePermissionData, UpdatePermissionResponses, UpdateQBankData, UpdateQBankResponses, UpdateQBankSkuData, UpdateQBankSkuResponses, UpdateQuestionData, UpdateQuestionResponses, UpdateRoleData, UpdateRoleResponses, UpdateUserData, UpdateUserResponses, UploadFileData, UploadFileResponses, VerifyCaptchaData, VerifyCaptchaErrors, VerifyCaptchaResponses } from './types.gen';
+import type { AdjustBalanceData, AdjustBalanceErrors, AdjustBalanceResponses, AssignPermissionsToRoleData, AssignPermissionsToRoleResponses, AssignRolesToUserData, AssignRolesToUserResponses, BatchOperationQuestionsData, BatchOperationQuestionsResponses, ChatWithKnowledgeBaseData, ChatWithKnowledgeBaseResponses, CreateKnowledgeBaseData, CreateKnowledgeBaseResponses, CreatePermissionData, CreatePermissionResponses, CreateQBankData, CreateQBankResponses, CreateQBankSkuData, CreateQBankSkuResponses, CreateQuestionData, CreateQuestionFeedbackData, CreateQuestionFeedbackResponses, CreateQuestionNoteData, CreateQuestionNoteResponses, CreateQuestionResponses, CreateRoleData, CreateRoleResponses, CreateShortUrlData, CreateShortUrlResponses, CreateThirdPartyFileUrlData, CreateThirdPartyFileUrlResponses, CreateUserData, CreateUserResponses, CreateWithdrawalData, CreateWithdrawalErrors, CreateWithdrawalResponses, DeleteFileData, DeleteFileResponses, DeleteKnowledgeBaseData, DeleteKnowledgeBaseResponses, DeleteKnowledgeDocumentData, DeleteKnowledgeDocumentResponses, DeletePermissionData, DeletePermissionResponses, DeleteQBankData, DeleteQBankResponses, DeleteQBankSkuData, DeleteQBankSkuResponses, DeleteQuestionData, DeleteQuestionFeedbackData, DeleteQuestionFeedbackResponses, DeleteQuestionNoteData, DeleteQuestionNoteResponses, DeleteQuestionResponses, DeleteRoleData, DeleteRoleResponses, DeleteShortUrlData, DeleteShortUrlResponses, DeleteThirdPartyFileData, DeleteThirdPartyFileResponses, DeleteUserData, DeleteUserResponses, FavoriteQuestionData, FavoriteQuestionResponses, GetCaptchaData, GetCaptchaResponses, GetCaptchaWithIdData, GetCaptchaWithIdResponses, GetCaptchaWithSignData, GetCaptchaWithSignResponses, GetCdnTrafficStatData, GetCdnTrafficStatResponses, GetCdnUsedTrafficData, GetCdnUsedTrafficResponses, GetDevTokenData, GetDevTokenErrors, GetDevTokenResponses, GetFileData, GetFileResponses, GetKnowledgeBaseData, GetKnowledgeBaseResponses, GetPermissionData, GetPermissionResponses, GetPlaceholderImageData, GetPlaceholderImageResponses, GetQBankData, GetQBankResponses, GetQBankSkuData, GetQBankSkuResponses, GetQuestionData, GetQuestionFeedbackData, GetQuestionFeedbackResponses, GetQuestionNoteByIdData, GetQuestionNoteByIdResponses, GetQuestionResponses, GetQuizProgressData, GetQuizProgressResponses, GetRoleData, GetRolePermissionsData, GetRolePermissionsResponses, GetRoleResponses, GetThirdPartyUploadParamsData, GetThirdPartyUploadParamsResponses, GetUserData, GetUserPermissionsData, GetUserPermissionsResponses, GetUserProfileData, GetUserProfileResponses, GetUserResponses, GetUserRolesData, GetUserRolesResponses, GetWalletBalanceData, GetWalletBalanceErrors, GetWalletBalanceResponses, LikeQuestionNoteData, LikeQuestionNoteResponses, ListAllPermissionsData, ListAllPermissionsResponses, ListAllRolesData, ListAllRolesResponses, ListAllWithdrawalsData, ListAllWithdrawalsErrors, ListAllWithdrawalsResponses, ListFavoritesData, ListFavoritesResponses, ListFilesData, ListFilesResponses, ListKnowledgeBasesData, ListKnowledgeBasesResponses, ListKnowledgeDocumentsData, ListKnowledgeDocumentsResponses, ListPermissionsData, ListPermissionsResponses, ListQBanksData, ListQBankSkusData, ListQBankSkusResponses, ListQBanksResponses, ListQuestionFeedbacksData, ListQuestionFeedbacksResponses, ListQuestionNotesData, ListQuestionNotesResponses, ListQuestionsByQBankData, ListQuestionsByQBankResponses, ListQuestionsData, ListQuestionsResponses, ListRolesData, ListRolesResponses, ListShortUrlsData, ListShortUrlsResponses, ListThirdPartyFilesData, ListThirdPartyFilesResponses, ListUserDomainsData, ListUserDomainsResponses, ListUsersData, ListUsersResponses, ListUserWalletsData, ListUserWalletsErrors, ListUserWalletsResponses, ListUserWithdrawalsData, ListUserWithdrawalsErrors, ListUserWithdrawalsResponses, ListWalletChangesData, ListWalletChangesErrors, ListWalletChangesResponses, LoginData, LoginErrors, LoginResponses, ParseCdnLogData, ParseCdnLogResponses, PatchFileData, PatchFileResponses, PatchThirdPartyFileData, PatchThirdPartyFileResponses, ProcessWithdrawalData, ProcessWithdrawalErrors, ProcessWithdrawalResponses, RedirectShortUrlData, RedirectShortUrlResponses, RefreshTokenData, RefreshTokenErrors, RefreshTokenResponses, SearchQuestionsData, SearchQuestionsResponses, SignupData, SignupErrors, SignupResponses, SubmitQuizProgressData, SubmitQuizProgressResponses, TestProcessorData, TestProcessorResponses, UnassignRolePermissionsData, UnassignRolePermissionsResponses, UnassignUserRolesData, UnassignUserRolesResponses, UnfavoriteQuestionData, UnfavoriteQuestionResponses, UnlikeQuestionNoteData, UnlikeQuestionNoteResponses, UpdateKnowledgeBaseData, UpdateKnowledgeBaseResponses, UpdatePermissionData, UpdatePermissionResponses, UpdateQBankData, UpdateQBankResponses, UpdateQBankSkuData, UpdateQBankSkuResponses, UpdateQuestionData, UpdateQuestionFeedbackData, UpdateQuestionFeedbackResponses, UpdateQuestionNoteData, UpdateQuestionNoteResponses, UpdateQuestionResponses, UpdateRoleData, UpdateRoleResponses, UpdateUserData, UpdateUserResponses, UploadFileData, UploadFileResponses, VerifyCaptchaData, VerifyCaptchaErrors, VerifyCaptchaResponses } from './types.gen';
 
 export type Options<TData extends TDataShape = TDataShape, ThrowOnError extends boolean = boolean> = Options2<TData, ThrowOnError> & {
     /**
@@ -662,6 +662,139 @@ export const unfavoriteQuestion = <ThrowOnError extends boolean = false>(options
 export const favoriteQuestion = <ThrowOnError extends boolean = false>(options: Options<FavoriteQuestionData, ThrowOnError>) => (options.client ?? client).post<FavoriteQuestionResponses, unknown, ThrowOnError>({
     responseType: 'json',
     url: '/question/favorite',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * 获取我的收藏列表
+ */
+export const listFavorites = <ThrowOnError extends boolean = false>(options?: Options<ListFavoritesData, ThrowOnError>) => (options?.client ?? client).get<ListFavoritesResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/favorites',
+    ...options
+});
+
+/**
+ * 获取笔记列表
+ */
+export const listQuestionNotes = <ThrowOnError extends boolean = false>(options?: Options<ListQuestionNotesData, ThrowOnError>) => (options?.client ?? client).get<ListQuestionNotesResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/notes',
+    ...options
+});
+
+/**
+ * 创建试题笔记
+ */
+export const createQuestionNote = <ThrowOnError extends boolean = false>(options: Options<CreateQuestionNoteData, ThrowOnError>) => (options.client ?? client).post<CreateQuestionNoteResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/notes',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * 删除笔记
+ */
+export const deleteQuestionNote = <ThrowOnError extends boolean = false>(options: Options<DeleteQuestionNoteData, ThrowOnError>) => (options.client ?? client).delete<DeleteQuestionNoteResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/notes/{id}',
+    ...options
+});
+
+/**
+ * 获取笔记详情
+ */
+export const getQuestionNoteById = <ThrowOnError extends boolean = false>(options: Options<GetQuestionNoteByIdData, ThrowOnError>) => (options.client ?? client).get<GetQuestionNoteByIdResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/notes/{id}',
+    ...options
+});
+
+/**
+ * 更新笔记
+ */
+export const updateQuestionNote = <ThrowOnError extends boolean = false>(options: Options<UpdateQuestionNoteData, ThrowOnError>) => (options.client ?? client).put<UpdateQuestionNoteResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/notes/{id}',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * 取消点赞笔记
+ */
+export const unlikeQuestionNote = <ThrowOnError extends boolean = false>(options: Options<UnlikeQuestionNoteData, ThrowOnError>) => (options.client ?? client).delete<UnlikeQuestionNoteResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/notes/{id}/like',
+    ...options
+});
+
+/**
+ * 点赞笔记
+ */
+export const likeQuestionNote = <ThrowOnError extends boolean = false>(options: Options<LikeQuestionNoteData, ThrowOnError>) => (options.client ?? client).post<LikeQuestionNoteResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/notes/{id}/like',
+    ...options
+});
+
+/**
+ * 获取试题反馈列表
+ */
+export const listQuestionFeedbacks = <ThrowOnError extends boolean = false>(options?: Options<ListQuestionFeedbacksData, ThrowOnError>) => (options?.client ?? client).get<ListQuestionFeedbacksResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/feedback',
+    ...options
+});
+
+/**
+ * 创建试题反馈
+ */
+export const createQuestionFeedback = <ThrowOnError extends boolean = false>(options: Options<CreateQuestionFeedbackData, ThrowOnError>) => (options.client ?? client).post<CreateQuestionFeedbackResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/feedback',
+    ...options,
+    headers: {
+        'Content-Type': 'application/json',
+        ...options.headers
+    }
+});
+
+/**
+ * 删除试题反馈
+ */
+export const deleteQuestionFeedback = <ThrowOnError extends boolean = false>(options: Options<DeleteQuestionFeedbackData, ThrowOnError>) => (options.client ?? client).delete<DeleteQuestionFeedbackResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/feedback/{id}',
+    ...options
+});
+
+/**
+ * 获取反馈详情
+ */
+export const getQuestionFeedback = <ThrowOnError extends boolean = false>(options: Options<GetQuestionFeedbackData, ThrowOnError>) => (options.client ?? client).get<GetQuestionFeedbackResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/feedback/{id}',
+    ...options
+});
+
+/**
+ * 处理试题反馈（管理员）
+ */
+export const updateQuestionFeedback = <ThrowOnError extends boolean = false>(options: Options<UpdateQuestionFeedbackData, ThrowOnError>) => (options.client ?? client).put<UpdateQuestionFeedbackResponses, unknown, ThrowOnError>({
+    responseType: 'json',
+    url: '/question/feedback/{id}',
     ...options,
     headers: {
         'Content-Type': 'application/json',

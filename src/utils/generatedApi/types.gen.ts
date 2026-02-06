@@ -4438,6 +4438,981 @@ export type FavoriteQuestionResponses = {
 
 export type FavoriteQuestionResponse = FavoriteQuestionResponses[keyof FavoriteQuestionResponses];
 
+export type ListFavoritesData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 题库ID
+         */
+        qBankId?: number;
+        /**
+         * 是否包含试题内容
+         */
+        withBody?: boolean;
+        /**
+         * 是否包含统计信息
+         */
+        withStat?: boolean;
+        /**
+         * 页码，从1开始，默认为1
+         */
+        page?: number;
+        /**
+         * 每页条数，默认为10，最小为5，最大为100
+         */
+        take?: number;
+        /**
+         * 游标分页，上次的ID
+         */
+        lastId?: number;
+        /**
+         * 游标分页，使用的键
+         */
+        cursorKey?: string;
+        /**
+         * 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id`
+         */
+        sort?: string;
+    };
+    url: '/question/favorites';
+};
+
+export type ListFavoritesResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 总记录数
+             */
+            totalCount?: number;
+            /**
+             * 总页数
+             */
+            totalPage?: number;
+            /**
+             * 当前页码
+             */
+            page?: number;
+            /**
+             * 每页条数
+             */
+            take: number;
+            /**
+             * 数据列表
+             */
+            list: Array<{
+                /**
+                 * 试题ID
+                 */
+                id: number;
+                qBankId: number | null;
+                /**
+                 * 试题类型
+                 */
+                type: number;
+                /**
+                 * 创建时间
+                 */
+                favoritedAt: string;
+                body?: null | {
+                    /**
+                     * 试题ID
+                     */
+                    questionId: number;
+                    /**
+                     * 题干
+                     */
+                    stem: string;
+                    answer: unknown | null;
+                    options: unknown | null;
+                    analysis: string | null;
+                    txtVec: unknown | null;
+                    /**
+                     * 创建用户ID
+                     */
+                    createdBy: number;
+                    updatedBy: number | null;
+                    /**
+                     * 创建时间
+                     */
+                    createdAt: string;
+                    updatedAt: string | null;
+                };
+                stat?: null | {
+                    /**
+                     * 总答题次数
+                     */
+                    answerCount: number;
+                    /**
+                     * 答对次数
+                     */
+                    rightCount: number;
+                    /**
+                     * 笔记数量
+                     */
+                    noteCount: number;
+                    /**
+                     * 做过该题的用户数量
+                     */
+                    userCount: number;
+                };
+            }>;
+        };
+    };
+};
+
+export type ListFavoritesResponse = ListFavoritesResponses[keyof ListFavoritesResponses];
+
+export type ListQuestionNotesData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 试题ID
+         */
+        questionId?: number;
+        /**
+         * 题库ID
+         */
+        qBankId?: number;
+        /**
+         * 可见性筛选
+         */
+        visibility?: number;
+        /**
+         * 用户ID（查询指定用户的笔记）
+         */
+        userId?: number;
+        /**
+         * 页码，从1开始，默认为1
+         */
+        page?: number;
+        /**
+         * 每页条数，默认为10，最小为5，最大为100
+         */
+        take?: number;
+        /**
+         * 游标分页，上次的ID
+         */
+        lastId?: number;
+        /**
+         * 游标分页，使用的键
+         */
+        cursorKey?: string;
+        /**
+         * 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id`
+         */
+        sort?: string;
+    };
+    url: '/question/notes';
+};
+
+export type ListQuestionNotesResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 总记录数
+             */
+            totalCount?: number;
+            /**
+             * 总页数
+             */
+            totalPage?: number;
+            /**
+             * 当前页码
+             */
+            page?: number;
+            /**
+             * 每页条数
+             */
+            take: number;
+            /**
+             * 数据列表
+             */
+            list: Array<{
+                /**
+                 * 笔记ID
+                 */
+                id: number;
+                /**
+                 * 用户ID
+                 */
+                userId: number;
+                /**
+                 * 题库ID
+                 */
+                qBankId: number;
+                /**
+                 * 试题ID
+                 */
+                questionId: number;
+                /**
+                 * 笔记内容
+                 */
+                content: string;
+                /**
+                 * 可见性：0私有 1公开
+                 */
+                visibility: number;
+                /**
+                 * 点赞数
+                 */
+                likeCount: number;
+                /**
+                 * 创建时间
+                 */
+                createdAt: string;
+                updatedAt: string | null;
+            }>;
+        };
+    };
+};
+
+export type ListQuestionNotesResponse = ListQuestionNotesResponses[keyof ListQuestionNotesResponses];
+
+export type CreateQuestionNoteData = {
+    body: {
+        /**
+         * 试题ID
+         */
+        questionId: number;
+        /**
+         * 题库ID
+         */
+        qBankId: number;
+        /**
+         * 笔记内容（富文本）
+         */
+        content: string;
+        /**
+         * 可见性：0私有 1公开
+         */
+        visibility?: number;
+    };
+    path?: never;
+    query?: never;
+    url: '/question/notes';
+};
+
+export type CreateQuestionNoteResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 笔记ID
+             */
+            id: number;
+            /**
+             * 用户ID
+             */
+            userId: number;
+            /**
+             * 题库ID
+             */
+            qBankId: number;
+            /**
+             * 试题ID
+             */
+            questionId: number;
+            /**
+             * 笔记内容
+             */
+            content: string;
+            /**
+             * 可见性：0私有 1公开
+             */
+            visibility: number;
+            /**
+             * 点赞数
+             */
+            likeCount: number;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+            updatedAt: string | null;
+        };
+    };
+};
+
+export type CreateQuestionNoteResponse = CreateQuestionNoteResponses[keyof CreateQuestionNoteResponses];
+
+export type DeleteQuestionNoteData = {
+    body?: never;
+    path: {
+        /**
+         * 笔记ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: '/question/notes/{id}';
+};
+
+export type DeleteQuestionNoteResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: null;
+    };
+};
+
+export type DeleteQuestionNoteResponse = DeleteQuestionNoteResponses[keyof DeleteQuestionNoteResponses];
+
+export type GetQuestionNoteByIdData = {
+    body?: never;
+    path: {
+        /**
+         * 笔记ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: '/question/notes/{id}';
+};
+
+export type GetQuestionNoteByIdResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 笔记ID
+             */
+            id: number;
+            /**
+             * 用户ID
+             */
+            userId: number;
+            /**
+             * 题库ID
+             */
+            qBankId: number;
+            /**
+             * 试题ID
+             */
+            questionId: number;
+            /**
+             * 笔记内容
+             */
+            content: string;
+            /**
+             * 可见性：0私有 1公开
+             */
+            visibility: number;
+            /**
+             * 点赞数
+             */
+            likeCount: number;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+            updatedAt: string | null;
+        };
+    };
+};
+
+export type GetQuestionNoteByIdResponse = GetQuestionNoteByIdResponses[keyof GetQuestionNoteByIdResponses];
+
+export type UpdateQuestionNoteData = {
+    body?: {
+        /**
+         * 笔记内容（富文本）
+         */
+        content?: string;
+        /**
+         * 可见性：0私有 1公开
+         */
+        visibility?: number;
+    };
+    path: {
+        /**
+         * 笔记ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: '/question/notes/{id}';
+};
+
+export type UpdateQuestionNoteResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 笔记ID
+             */
+            id: number;
+            /**
+             * 用户ID
+             */
+            userId: number;
+            /**
+             * 题库ID
+             */
+            qBankId: number;
+            /**
+             * 试题ID
+             */
+            questionId: number;
+            /**
+             * 笔记内容
+             */
+            content: string;
+            /**
+             * 可见性：0私有 1公开
+             */
+            visibility: number;
+            /**
+             * 点赞数
+             */
+            likeCount: number;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+            updatedAt: string | null;
+        };
+    };
+};
+
+export type UpdateQuestionNoteResponse = UpdateQuestionNoteResponses[keyof UpdateQuestionNoteResponses];
+
+export type UnlikeQuestionNoteData = {
+    body?: never;
+    path: {
+        /**
+         * 笔记ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: '/question/notes/{id}/like';
+};
+
+export type UnlikeQuestionNoteResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 笔记ID
+             */
+            noteId: number;
+            /**
+             * 点赞数
+             */
+            likeCount: number;
+            /**
+             * 是否已点赞
+             */
+            isLiked: boolean;
+        };
+    };
+};
+
+export type UnlikeQuestionNoteResponse = UnlikeQuestionNoteResponses[keyof UnlikeQuestionNoteResponses];
+
+export type LikeQuestionNoteData = {
+    body?: never;
+    path: {
+        /**
+         * 笔记ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: '/question/notes/{id}/like';
+};
+
+export type LikeQuestionNoteResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 笔记ID
+             */
+            noteId: number;
+            /**
+             * 点赞数
+             */
+            likeCount: number;
+            /**
+             * 是否已点赞
+             */
+            isLiked: boolean;
+        };
+    };
+};
+
+export type LikeQuestionNoteResponse = LikeQuestionNoteResponses[keyof LikeQuestionNoteResponses];
+
+export type ListQuestionFeedbacksData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * 试题ID
+         */
+        questionId?: number;
+        /**
+         * 题库ID
+         */
+        qBankId?: number;
+        /**
+         * 反馈类型：1:答案错误, 2:选项错误, 3:题干有误, 4:题意不清, 5:其他问题
+         */
+        type?: number;
+        /**
+         * 反馈状态：0:待处理, 1:处理中, 2:已解决, 3:已拒绝
+         */
+        status?: number;
+        /**
+         * 用户ID
+         */
+        userId?: number;
+        /**
+         * 页码，从1开始，默认为1
+         */
+        page?: number;
+        /**
+         * 每页条数，默认为10，最小为5，最大为100
+         */
+        take?: number;
+        /**
+         * 游标分页，上次的ID
+         */
+        lastId?: number;
+        /**
+         * 游标分页，使用的键
+         */
+        cursorKey?: string;
+        /**
+         * 排序字段，多字段用英文逗号`,`分隔，默认升序；字段名前加`-`表示降序；例如：`-createdAt,id`
+         */
+        sort?: string;
+    };
+    url: '/question/feedback';
+};
+
+export type ListQuestionFeedbacksResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 总记录数
+             */
+            totalCount?: number;
+            /**
+             * 总页数
+             */
+            totalPage?: number;
+            /**
+             * 当前页码
+             */
+            page?: number;
+            /**
+             * 每页条数
+             */
+            take: number;
+            /**
+             * 数据列表
+             */
+            list: Array<{
+                /**
+                 * 反馈ID
+                 */
+                id: number;
+                /**
+                 * 反馈用户ID
+                 */
+                userId: number;
+                /**
+                 * 试题ID
+                 */
+                questionId: number;
+                /**
+                 * 题库ID
+                 */
+                qBankId: number;
+                /**
+                 * 反馈类型：1:答案错误, 2:选项错误, 3:题干有误, 4:题意不清, 5:其他问题
+                 */
+                type: number;
+                /**
+                 * 反馈内容
+                 */
+                content: string;
+                /**
+                 * 反馈状态：0:待处理, 1:处理中, 2:已解决, 3:已拒绝
+                 */
+                status: number;
+                processBy: number | null;
+                processNote: string | null;
+                processedAt: string | null;
+                /**
+                 * 创建时间
+                 */
+                createdAt: string;
+                updatedAt: string | null;
+            }>;
+        };
+    };
+};
+
+export type ListQuestionFeedbacksResponse = ListQuestionFeedbacksResponses[keyof ListQuestionFeedbacksResponses];
+
+export type CreateQuestionFeedbackData = {
+    body: {
+        /**
+         * 试题ID
+         */
+        questionId: number;
+        /**
+         * 题库ID
+         */
+        qBankId: number;
+        /**
+         * 反馈类型：1:答案错误, 2:选项错误, 3:题干有误, 4:题意不清, 5:其他问题
+         */
+        type: number;
+        /**
+         * 反馈内容
+         */
+        content: string;
+    };
+    path?: never;
+    query?: never;
+    url: '/question/feedback';
+};
+
+export type CreateQuestionFeedbackResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 反馈ID
+             */
+            id: number;
+            /**
+             * 反馈用户ID
+             */
+            userId: number;
+            /**
+             * 试题ID
+             */
+            questionId: number;
+            /**
+             * 题库ID
+             */
+            qBankId: number;
+            /**
+             * 反馈类型：1:答案错误, 2:选项错误, 3:题干有误, 4:题意不清, 5:其他问题
+             */
+            type: number;
+            /**
+             * 反馈内容
+             */
+            content: string;
+            /**
+             * 反馈状态：0:待处理, 1:处理中, 2:已解决, 3:已拒绝
+             */
+            status: number;
+            processBy: number | null;
+            processNote: string | null;
+            processedAt: string | null;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+            updatedAt: string | null;
+        };
+    };
+};
+
+export type CreateQuestionFeedbackResponse = CreateQuestionFeedbackResponses[keyof CreateQuestionFeedbackResponses];
+
+export type DeleteQuestionFeedbackData = {
+    body?: never;
+    path: {
+        /**
+         * 反馈ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: '/question/feedback/{id}';
+};
+
+export type DeleteQuestionFeedbackResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 反馈ID
+             */
+            id: number;
+        };
+    };
+};
+
+export type DeleteQuestionFeedbackResponse = DeleteQuestionFeedbackResponses[keyof DeleteQuestionFeedbackResponses];
+
+export type GetQuestionFeedbackData = {
+    body?: never;
+    path: {
+        /**
+         * 反馈ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: '/question/feedback/{id}';
+};
+
+export type GetQuestionFeedbackResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 反馈ID
+             */
+            id: number;
+            /**
+             * 反馈用户ID
+             */
+            userId: number;
+            /**
+             * 试题ID
+             */
+            questionId: number;
+            /**
+             * 题库ID
+             */
+            qBankId: number;
+            /**
+             * 反馈类型：1:答案错误, 2:选项错误, 3:题干有误, 4:题意不清, 5:其他问题
+             */
+            type: number;
+            /**
+             * 反馈内容
+             */
+            content: string;
+            /**
+             * 反馈状态：0:待处理, 1:处理中, 2:已解决, 3:已拒绝
+             */
+            status: number;
+            processBy: number | null;
+            processNote: string | null;
+            processedAt: string | null;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+            updatedAt: string | null;
+        };
+    };
+};
+
+export type GetQuestionFeedbackResponse = GetQuestionFeedbackResponses[keyof GetQuestionFeedbackResponses];
+
+export type UpdateQuestionFeedbackData = {
+    body: {
+        /**
+         * 反馈状态：0:待处理, 1:处理中, 2:已解决, 3:已拒绝
+         */
+        status: number;
+        /**
+         * 处理备注
+         */
+        processNote?: string;
+    };
+    path: {
+        /**
+         * 反馈ID
+         */
+        id: number;
+    };
+    query?: never;
+    url: '/question/feedback/{id}';
+};
+
+export type UpdateQuestionFeedbackResponses = {
+    /**
+     * Default Response
+     */
+    200: {
+        /**
+         * 状态码
+         */
+        code: number;
+        /**
+         * 响应消息
+         */
+        msg: string;
+        data: {
+            /**
+             * 反馈ID
+             */
+            id: number;
+            /**
+             * 反馈用户ID
+             */
+            userId: number;
+            /**
+             * 试题ID
+             */
+            questionId: number;
+            /**
+             * 题库ID
+             */
+            qBankId: number;
+            /**
+             * 反馈类型：1:答案错误, 2:选项错误, 3:题干有误, 4:题意不清, 5:其他问题
+             */
+            type: number;
+            /**
+             * 反馈内容
+             */
+            content: string;
+            /**
+             * 反馈状态：0:待处理, 1:处理中, 2:已解决, 3:已拒绝
+             */
+            status: number;
+            processBy: number | null;
+            processNote: string | null;
+            processedAt: string | null;
+            /**
+             * 创建时间
+             */
+            createdAt: string;
+            updatedAt: string | null;
+        };
+    };
+};
+
+export type UpdateQuestionFeedbackResponse = UpdateQuestionFeedbackResponses[keyof UpdateQuestionFeedbackResponses];
+
 export type SubmitQuizProgressData = {
     body: {
         /**
