@@ -9,8 +9,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     AppFooter: typeof import('./src/components/AppFooter.vue')['default']
     AppLogos: typeof import('./src/components/AppLogos.vue')['default']
+    CaptchaInput: typeof import('./src/components/CaptchaInput.vue')['default']
     InputEntry: typeof import('./src/components/InputEntry.vue')['default']
-    VirtualList: typeof import('./src/components/VirtualList.vue')['default']
+    LoginModal: typeof import('./src/components/LoginModal.vue')['default']
     WdButton: typeof import('wot-design-uni/components/wd-button/wd-button.vue')['default']
     WdPopup: typeof import('wot-design-uni/components/wd-popup/wd-popup.vue')['default']
   }

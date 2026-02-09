@@ -49,7 +49,20 @@ const handleMenuClick = (item: MenuItem) => {
     return
   }
 
-  // 跳转到答题页面
+  // 数据查看类功能
+  if (['favorite', 'wrong', 'note'].includes(item.key)) {
+    const pageMap: Record<string, string> = {
+      favorite: '/pages/qbank-detail/favorites',
+      wrong: '/pages/qbank-detail/wrong-questions',
+      note: '/pages/qbank-detail/notes'
+    }
+    uni.navigateTo({
+      url: `${pageMap[item.key]}?qBankId=${qBankId.value}&skuId=${selectedSku.value.id}`
+    })
+    return
+  }
+
+  // 练习模式(exam/random/sequence/chapter)
   uni.navigateTo({
     url: `/pages/quiz/index?id=${qBankId.value}&skuId=${selectedSku.value.id}&mode=${item.key}`
   })
